@@ -1,5 +1,5 @@
 package com.alex.compis;
-
+    
 %%
 
 %public
@@ -8,30 +8,30 @@ package com.alex.compis;
 %line
 %column
 %char
+%type tokens
 
-N0="0"
-N19=[1-9]
-N09=[0-9]
-S = "."
-nM= "E"
-nn= "e"
-
-Ppositivo = ({N09}*({N19}|{N0}))
-Pnegativo =(-{N09}*({N19}|{N0}))
-
-NumPositivo = {N19}{N09}*{S}{Ppositivo}
-NumNegativo =(-{N19}{N09}*{S}{Ppositivo})
-
-DECIMAL = ({NumPositivo}|{NumNegativo})
-EXPONENCIAL = {NumPositivo}({nM}|{nn})({Ppositivo}|{Pnegativo})
-
+L=[a-zA-Z_]+
+D=[0-9]+
+espacio=[ ,\t,\r,\n]+
+%{
+    public String lexeme;
+%}
 %%
+int |
+if |
+else |
+while {lexeme=yytext(); return Reservadas;}
+{espacio} {/*no hace nada*/}
+"//".* {/*no hace nada*/}
+"=" {return Igual;}
+"+" {return Suma;}
+"-" {return Resta;}
+"*" {return Multiplicacion;}
+"/" {return Division;}
+{L}({L}|{D})* {lexeme=yytext(); return Identificador;}
+("(-"{D}+")")|{D}+ {lexeme=yytext(); return Numero;}
+ . {return ERROR;}
 
-{DECIMAL} {
-	System.out.println("encontre un numero decimal: " + yytext() );
-}
-{EXPONENCIAL} {
-        System.out.println("encontre un numero exponencial: " + yytext() );
-}
 
-.	{}
+
+
