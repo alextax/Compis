@@ -3,7 +3,7 @@
 // source: src/main/java/com/alex/compis/jflex/archivo.flex
 
 package com.alex.compis;
-
+    
 
 // See https://github.com/jflex-de/jflex/issues/222
 @SuppressWarnings("FallThrough")
@@ -62,12 +62,9 @@ public class Proyecto {
   private static final int [] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
-    "\11\0\1\1\1\2\2\3\1\2\22\0\1\1\7\0"+
-    "\1\4\1\5\1\6\1\7\1\1\1\10\1\0\1\11"+
-    "\12\12\3\0\1\13\3\0\32\14\4\0\1\14\1\0"+
-    "\4\14\1\15\1\16\1\14\1\17\1\20\2\14\1\21"+
-    "\1\14\1\22\4\14\1\23\1\24\2\14\1\25\3\14"+
-    "\12\0\1\3\u01a2\0\2\3\326\0\u0100\3";
+    "\12\0\1\1\1\2\1\0\1\3\22\0\1\4\13\0"+
+    "\1\5\24\0\32\6\6\0\32\6\12\0\1\2\u01a2\0"+
+    "\2\2\326\0\u0100\2";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[1024];
@@ -94,12 +91,10 @@ public class Proyecto {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\1\3\1\1\1\4\1\5\1\6"+
-    "\1\7\1\10\1\11\4\12\1\0\1\2\1\12\1\13"+
-    "\2\12\1\0\2\12\1\10";
+    "\1\0\2\1\1\2\2\1\5\0\1\3\1\0\1\4";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[25];
+    int [] result = new int[14];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -124,13 +119,11 @@ public class Proyecto {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\26\0\54\0\26\0\102\0\26\0\26\0\26"+
-    "\0\130\0\156\0\26\0\204\0\232\0\260\0\306\0\334"+
-    "\0\362\0\u0108\0\204\0\u011e\0\u0134\0\u014a\0\u0160\0\u0176"+
-    "\0\26";
+    "\0\0\0\7\0\16\0\7\0\25\0\34\0\43\0\52"+
+    "\0\34\0\61\0\70\0\7\0\77\0\106";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[25];
+    int [] result = new int[14];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -153,21 +146,14 @@ public class Proyecto {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\2\3\1\4\1\5\1\2\1\6\1\7\1\10"+
-    "\1\11\1\12\1\13\1\14\1\15\2\14\1\16\4\14"+
-    "\1\17\27\0\2\3\33\0\1\20\26\0\1\21\26\0"+
-    "\1\12\25\0\1\14\1\0\12\14\12\0\1\14\1\0"+
-    "\5\14\1\22\4\14\12\0\1\14\1\0\2\14\1\23"+
-    "\3\14\1\24\3\14\12\0\1\14\1\0\3\14\1\25"+
-    "\6\14\12\0\1\26\13\0\2\21\2\0\22\21\12\0"+
-    "\1\14\1\0\7\14\1\27\2\14\12\0\1\14\1\0"+
-    "\10\14\1\23\1\14\12\0\1\14\1\0\4\14\1\30"+
-    "\5\14\5\0\1\31\4\0\1\26\25\0\1\14\1\0"+
-    "\1\14\1\23\10\14\12\0\1\14\1\0\5\14\1\27"+
-    "\4\14";
+    "\1\2\1\3\1\4\1\5\1\3\1\2\1\6\10\0"+
+    "\1\7\2\0\1\7\3\0\1\2\6\0\1\10\2\0"+
+    "\1\10\1\0\1\11\1\0\1\12\2\0\1\12\10\0"+
+    "\1\13\1\0\1\14\2\0\1\14\7\0\1\15\1\13"+
+    "\6\0\1\16\5\0\1\15\1\16";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[396];
+    int [] result = new int[77];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -210,11 +196,11 @@ public class Proyecto {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\1\1\1\11\1\1\3\11\2\1\1\11"+
-    "\4\1\1\0\5\1\1\0\2\1\1\11";
+    "\1\0\1\11\1\1\1\11\2\1\5\0\1\11\1\0"+
+    "\1\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[25];
+    int [] result = new int[14];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -256,4 +242,511 @@ public class Proyecto {
   /** Marks the beginning of the {@link #yytext()} string in the buffer. */
   private int zzStartRead;
 
-  /** Marks the last character in the buffer, that has been read from inpu
+  /** Marks the last character in the buffer, that has been read from input. */
+  private int zzEndRead;
+
+  /**
+   * Whether the scanner is at the end of file.
+   * @see #yyatEOF
+   */
+  private boolean zzAtEOF;
+
+  /**
+   * The number of occupied positions in {@link #zzBuffer} beyond {@link #zzEndRead}.
+   *
+   * <p>When a lead/high surrogate has been read from the input stream into the final
+   * {@link #zzBuffer} position, this will have a value of 1; otherwise, it will have a value of 0.
+   */
+  private int zzFinalHighSurrogate = 0;
+
+  /** Number of newlines encountered up to the start of the matched text. */
+  private int yyline;
+
+  /** Number of characters from the last newline up to the start of the matched text. */
+  private int yycolumn;
+
+  /** Number of characters up to the start of the matched text. */
+  private long yychar;
+
+  /** Whether the scanner is currently at the beginning of a line. */
+  @SuppressWarnings("unused")
+  private boolean zzAtBOL = true;
+
+  /** Whether the user-EOF-code has already been executed. */
+  @SuppressWarnings("unused")
+  private boolean zzEOFDone;
+
+
+  /**
+   * Creates a new scanner
+   *
+   * @param   in  the java.io.Reader to read input from.
+   */
+  public Proyecto(java.io.Reader in) {
+    this.zzReader = in;
+  }
+
+  /**
+   * Translates raw input code points to DFA table row
+   */
+  private static int zzCMap(int input) {
+    int offset = input & 255;
+    return offset == input ? ZZ_CMAP_BLOCKS[offset] : ZZ_CMAP_BLOCKS[ZZ_CMAP_TOP[input >> 8] | offset];
+  }
+
+  /**
+   * Refills the input buffer.
+   *
+   * @return {@code false} iff there was new input.
+   * @exception java.io.IOException  if any I/O-Error occurs
+   */
+  private boolean zzRefill() throws java.io.IOException {
+
+    /* first: make room (if you can) */
+    if (zzStartRead > 0) {
+      zzEndRead += zzFinalHighSurrogate;
+      zzFinalHighSurrogate = 0;
+      System.arraycopy(zzBuffer, zzStartRead,
+                       zzBuffer, 0,
+                       zzEndRead - zzStartRead);
+
+      /* translate stored positions */
+      zzEndRead -= zzStartRead;
+      zzCurrentPos -= zzStartRead;
+      zzMarkedPos -= zzStartRead;
+      zzStartRead = 0;
+    }
+
+    /* is the buffer big enough? */
+    if (zzCurrentPos >= zzBuffer.length - zzFinalHighSurrogate) {
+      /* if not: blow it up */
+      char newBuffer[] = new char[zzBuffer.length * 2];
+      System.arraycopy(zzBuffer, 0, newBuffer, 0, zzBuffer.length);
+      zzBuffer = newBuffer;
+      zzEndRead += zzFinalHighSurrogate;
+      zzFinalHighSurrogate = 0;
+    }
+
+    /* fill the buffer with new input */
+    int requested = zzBuffer.length - zzEndRead;
+    int numRead = zzReader.read(zzBuffer, zzEndRead, requested);
+
+    /* not supposed to occur according to specification of java.io.Reader */
+    if (numRead == 0) {
+      throw new java.io.IOException(
+          "Reader returned 0 characters. See JFlex examples/zero-reader for a workaround.");
+    }
+    if (numRead > 0) {
+      zzEndRead += numRead;
+      if (Character.isHighSurrogate(zzBuffer[zzEndRead - 1])) {
+        if (numRead == requested) { // We requested too few chars to encode a full Unicode character
+          --zzEndRead;
+          zzFinalHighSurrogate = 1;
+        } else {                    // There is room in the buffer for at least one more char
+          int c = zzReader.read();  // Expecting to read a paired low surrogate char
+          if (c == -1) {
+            return true;
+          } else {
+            zzBuffer[zzEndRead++] = (char)c;
+          }
+        }
+      }
+      /* potentially more input available */
+      return false;
+    }
+
+    /* numRead < 0 ==> end of stream */
+    return true;
+  }
+
+
+  /**
+   * Closes the input reader.
+   *
+   * @throws java.io.IOException if the reader could not be closed.
+   */
+  public final void yyclose() throws java.io.IOException {
+    zzAtEOF = true; // indicate end of file
+    zzEndRead = zzStartRead; // invalidate buffer
+
+    if (zzReader != null) {
+      zzReader.close();
+    }
+  }
+
+
+  /**
+   * Resets the scanner to read from a new input stream.
+   *
+   * <p>Does not close the old reader.
+   *
+   * <p>All internal variables are reset, the old input stream <b>cannot</b> be reused (internal
+   * buffer is discarded and lost). Lexical state is set to {@code ZZ_INITIAL}.
+   *
+   * <p>Internal scan buffer is resized down to its initial length, if it has grown.
+   *
+   * @param reader The new input stream.
+   */
+  public final void yyreset(java.io.Reader reader) {
+    zzReader = reader;
+    zzEOFDone = false;
+    yyResetPosition();
+    zzLexicalState = YYINITIAL;
+    if (zzBuffer.length > ZZ_BUFFERSIZE) {
+      zzBuffer = new char[ZZ_BUFFERSIZE];
+    }
+  }
+
+  /**
+   * Resets the input position.
+   */
+  private final void yyResetPosition() {
+      zzAtBOL  = true;
+      zzAtEOF  = false;
+      zzCurrentPos = 0;
+      zzMarkedPos = 0;
+      zzStartRead = 0;
+      zzEndRead = 0;
+      zzFinalHighSurrogate = 0;
+      yyline = 0;
+      yycolumn = 0;
+      yychar = 0L;
+  }
+
+
+  /**
+   * Returns whether the scanner has reached the end of the reader it reads from.
+   *
+   * @return whether the scanner has reached EOF.
+   */
+  public final boolean yyatEOF() {
+    return zzAtEOF;
+  }
+
+
+  /**
+   * Returns the current lexical state.
+   *
+   * @return the current lexical state.
+   */
+  public final int yystate() {
+    return zzLexicalState;
+  }
+
+
+  /**
+   * Enters a new lexical state.
+   *
+   * @param newState the new lexical state
+   */
+  public final void yybegin(int newState) {
+    zzLexicalState = newState;
+  }
+
+
+  /**
+   * Returns the text matched by the current regular expression.
+   *
+   * @return the matched text.
+   */
+  public final String yytext() {
+    return new String(zzBuffer, zzStartRead, zzMarkedPos-zzStartRead);
+  }
+
+
+  /**
+   * Returns the character at the given position from the matched text.
+   *
+   * <p>It is equivalent to {@code yytext().charAt(pos)}, but faster.
+   *
+   * @param position the position of the character to fetch. A value from 0 to {@code yylength()-1}.
+   *
+   * @return the character at {@code position}.
+   */
+  public final char yycharat(int position) {
+    return zzBuffer[zzStartRead + position];
+  }
+
+
+  /**
+   * How many characters were matched.
+   *
+   * @return the length of the matched text region.
+   */
+  public final int yylength() {
+    return zzMarkedPos-zzStartRead;
+  }
+
+
+  /**
+   * Reports an error that occurred while scanning.
+   *
+   * <p>In a well-formed scanner (no or only correct usage of {@code yypushback(int)} and a
+   * match-all fallback rule) this method will only be called with things that
+   * "Can't Possibly Happen".
+   *
+   * <p>If this method is called, something is seriously wrong (e.g. a JFlex bug producing a faulty
+   * scanner etc.).
+   *
+   * <p>Usual syntax/scanner level error handling should be done in error fallback rules.
+   *
+   * @param errorCode the code of the error message to display.
+   */
+  private static void zzScanError(int errorCode) {
+    String message;
+    try {
+      message = ZZ_ERROR_MSG[errorCode];
+    } catch (ArrayIndexOutOfBoundsException e) {
+      message = ZZ_ERROR_MSG[ZZ_UNKNOWN_ERROR];
+    }
+
+    throw new Error(message);
+  }
+
+
+  /**
+   * Pushes the specified amount of characters back into the input stream.
+   *
+   * <p>They will be read again by then next call of the scanning method.
+   *
+   * @param number the number of characters to be read again. This number must not be greater than
+   *     {@link #yylength()}.
+   */
+  public void yypushback(int number)  {
+    if ( number > yylength() )
+      zzScanError(ZZ_PUSHBACK_2BIG);
+
+    zzMarkedPos -= number;
+  }
+
+
+
+
+  /**
+   * Resumes scanning until the next regular expression is matched, the end of input is encountered
+   * or an I/O-Error occurs.
+   *
+   * @return the next token.
+   * @exception java.io.IOException if any I/O-Error occurs.
+   */
+  public int yylex() throws java.io.IOException {
+    int zzInput;
+    int zzAction;
+
+    // cached fields:
+    int zzCurrentPosL;
+    int zzMarkedPosL;
+    int zzEndReadL = zzEndRead;
+    char[] zzBufferL = zzBuffer;
+
+    int [] zzTransL = ZZ_TRANS;
+    int [] zzRowMapL = ZZ_ROWMAP;
+    int [] zzAttrL = ZZ_ATTRIBUTE;
+
+    while (true) {
+      zzMarkedPosL = zzMarkedPos;
+
+      yychar+= zzMarkedPosL-zzStartRead;
+
+      boolean zzR = false;
+      int zzCh;
+      int zzCharCount;
+      for (zzCurrentPosL = zzStartRead  ;
+           zzCurrentPosL < zzMarkedPosL ;
+           zzCurrentPosL += zzCharCount ) {
+        zzCh = Character.codePointAt(zzBufferL, zzCurrentPosL, zzMarkedPosL);
+        zzCharCount = Character.charCount(zzCh);
+        switch (zzCh) {
+        case '\u000B':  // fall through
+        case '\u000C':  // fall through
+        case '\u0085':  // fall through
+        case '\u2028':  // fall through
+        case '\u2029':
+          yyline++;
+          yycolumn = 0;
+          zzR = false;
+          break;
+        case '\r':
+          yyline++;
+          yycolumn = 0;
+          zzR = true;
+          break;
+        case '\n':
+          if (zzR)
+            zzR = false;
+          else {
+            yyline++;
+            yycolumn = 0;
+          }
+          break;
+        default:
+          zzR = false;
+          yycolumn += zzCharCount;
+        }
+      }
+
+      if (zzR) {
+        // peek one character ahead if it is
+        // (if we have counted one line too much)
+        boolean zzPeek;
+        if (zzMarkedPosL < zzEndReadL)
+          zzPeek = zzBufferL[zzMarkedPosL] == '\n';
+        else if (zzAtEOF)
+          zzPeek = false;
+        else {
+          boolean eof = zzRefill();
+          zzEndReadL = zzEndRead;
+          zzMarkedPosL = zzMarkedPos;
+          zzBufferL = zzBuffer;
+          if (eof)
+            zzPeek = false;
+          else
+            zzPeek = zzBufferL[zzMarkedPosL] == '\n';
+        }
+        if (zzPeek) yyline--;
+      }
+      zzAction = -1;
+
+      zzCurrentPosL = zzCurrentPos = zzStartRead = zzMarkedPosL;
+
+      zzState = ZZ_LEXSTATE[zzLexicalState];
+
+      // set up zzAction for empty match case:
+      int zzAttributes = zzAttrL[zzState];
+      if ( (zzAttributes & 1) == 1 ) {
+        zzAction = zzState;
+      }
+
+
+      zzForAction: {
+        while (true) {
+
+          if (zzCurrentPosL < zzEndReadL) {
+            zzInput = Character.codePointAt(zzBufferL, zzCurrentPosL, zzEndReadL);
+            zzCurrentPosL += Character.charCount(zzInput);
+          }
+          else if (zzAtEOF) {
+            zzInput = YYEOF;
+            break zzForAction;
+          }
+          else {
+            // store back cached positions
+            zzCurrentPos  = zzCurrentPosL;
+            zzMarkedPos   = zzMarkedPosL;
+            boolean eof = zzRefill();
+            // get translated positions and possibly new buffer
+            zzCurrentPosL  = zzCurrentPos;
+            zzMarkedPosL   = zzMarkedPos;
+            zzBufferL      = zzBuffer;
+            zzEndReadL     = zzEndRead;
+            if (eof) {
+              zzInput = YYEOF;
+              break zzForAction;
+            }
+            else {
+              zzInput = Character.codePointAt(zzBufferL, zzCurrentPosL, zzEndReadL);
+              zzCurrentPosL += Character.charCount(zzInput);
+            }
+          }
+          int zzNext = zzTransL[ zzRowMapL[zzState] + zzCMap(zzInput) ];
+          if (zzNext == -1) break zzForAction;
+          zzState = zzNext;
+
+          zzAttributes = zzAttrL[zzState];
+          if ( (zzAttributes & 1) == 1 ) {
+            zzAction = zzState;
+            zzMarkedPosL = zzCurrentPosL;
+            if ( (zzAttributes & 8) == 8 ) break zzForAction;
+          }
+
+        }
+      }
+
+      // store back cached position
+      zzMarkedPos = zzMarkedPosL;
+
+      if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
+        zzAtEOF = true;
+        return YYEOF;
+      }
+      else {
+        switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
+          case 1:
+            { 
+            }
+            // fall through
+          case 5: break;
+          case 2:
+            { System.out.print(yytext());
+            }
+            // fall through
+          case 6: break;
+          case 3:
+            { System.out.println("encontre una tabulacion");
+            }
+            // fall through
+          case 7: break;
+          case 4:
+            { System.out.println("encontre una regla de nomenclatura " + yytext() );
+            }
+            // fall through
+          case 8: break;
+          default:
+            zzScanError(ZZ_NO_MATCH);
+        }
+      }
+    }
+  }
+
+  /**
+   * Runs the scanner on input files.
+   *
+   * This is a standalone scanner, it will print any unmatched
+   * text to System.out unchanged.
+   *
+   * @param argv   the command line, contains the filenames to run
+   *               the scanner on.
+   */
+  public static void main(String argv[]) {
+    if (argv.length == 0) {
+      System.out.println("Usage : java Proyecto [ --encoding <name> ] <inputfile(s)>");
+    }
+    else {
+      int firstFilePos = 0;
+      String encodingName = "UTF-8";
+      if (argv[0].equals("--encoding")) {
+        firstFilePos = 2;
+        encodingName = argv[1];
+        try {
+          // Side-effect: is encodingName valid?
+          java.nio.charset.Charset.forName(encodingName);
+        } catch (Exception e) {
+          System.out.println("Invalid encoding '" + encodingName + "'");
+          return;
+        }
+      }
+      for (int i = firstFilePos; i < argv.length; i++) {
+        Proyecto scanner = null;
+        try {
+          java.io.FileInputStream stream = new java.io.FileInputStream(argv[i]);
+          java.io.Reader reader = new java.io.InputStreamReader(stream, encodingName);
+          scanner = new Proyecto(reader);
+          while ( !scanner.zzAtEOF ) scanner.yylex();
+        }
+        catch (java.io.FileNotFoundException e) {
+          System.out.println("File not found : \""+argv[i]+"\"");
+        }
+        catch (java.io.IOException e) {
+          System.out.println("IO error scanning file \""+argv[i]+"\"");
+          System.out.println(e);
+        }
+        catch (Exception e) {
+          System.out.println("Unexpected exception:");
+          e.printStackTrace();
+        }
+      }
+    }
+  }
+
+
+}

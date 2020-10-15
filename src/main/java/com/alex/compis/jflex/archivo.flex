@@ -8,30 +8,47 @@ package com.alex.compis;
 %line
 %column
 %char
-%type tokens
 
-L=[a-zA-Z_]+
+L=[a-zA-Z]+
+l=[a-z]+
 D=[0-9]+
-espacio=[ ,\t,\r,\n]+
-%{
-    public String lexeme;
-%}
+COMA=","
+IGUAL="="
+
+/*Espacio en blanco*/
+FinLinea = \r|\n|\r\n
+EspacioBlanco = {FinLinea} |[ \t\f]
+
+/*Palabras reservadas*/
+entero="entero"
+real="real"
+cadena="cadena"
+bool="booleano"
+nul="nulo"
+
+/*DETECTA NOMENCLATURA DE VARIABLE A,B,C*/
+regla1={L}+{espacio}({L}{COMA})+{L}
+
+/* VARIABLE=DATO */
+i={l}+{espacio}{IGUAL}{D}+
+
+/*detecta un tabulador*/
+espacio=[ \n]
+tab={espacio}{4}
+
+/*Reservadas*/
+reservadas={real}|{entero}|{cadena}|{nul}|{bool}
+
+
+/*Declarar var*/
+declarar={reservadas}{espacio}{i}
+
 %%
-int |
-if |
-else |
-while {lexeme=yytext(); return Reservadas;}
-{espacio} {/*no hace nada*/}
-"//".* {/*no hace nada*/}
-"=" {return Igual;}
-"+" {return Suma;}
-"-" {return Resta;}
-"*" {return Multiplicacion;}
-"/" {return Division;}
-{L}({L}|{D})* {lexeme=yytext(); return Identificador;}
-("(-"{D}+")")|{D}+ {lexeme=yytext(); return Numero;}
- . {return ERROR;}
-
-
-
-
+{tab} {
+    System.out.println("encontre una tabulacion");
+}
+{regla1} {
+    System.out.println("encontre una regla de nomenclatura " + yytext() );
+}
+{EspacioBlanco} {}
+. {}
