@@ -68,9 +68,12 @@ public class Proyecto {
   private static final int [] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
-    "\12\0\1\1\1\2\1\0\1\3\22\0\1\4\13\0"+
-    "\1\5\3\0\12\6\7\0\32\7\4\0\1\6\1\0"+
-    "\32\10\12\0\1\2\u01a2\0\2\2\326\0\u0100\2";
+    "\12\0\1\1\1\2\1\0\1\3\22\0\1\4\6\0"+
+    "\1\5\2\0\1\6\1\0\1\7\1\0\1\10\1\11"+
+    "\12\12\3\0\1\13\3\0\32\14\4\0\1\15\1\0"+
+    "\1\16\1\17\1\20\1\21\1\22\1\23\5\24\1\25"+
+    "\1\24\1\26\1\27\2\24\1\30\1\31\1\32\1\24"+
+    "\1\33\4\24\12\0\1\2\u01a2\0\2\2\326\0\u0100\2";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[1024];
@@ -97,11 +100,14 @@ public class Proyecto {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\2\1\1\2\2\1\1\3\3\0\1\3\2\0"+
-    "\1\4\1\0\1\5";
+    "\1\0\2\1\1\2\6\1\2\0\1\3\12\0\1\4"+
+    "\1\5\13\0\1\6\5\0\1\7\1\10\1\0\1\6"+
+    "\2\0\1\11\2\0\1\6\5\0\1\7\3\0\1\10"+
+    "\5\0\1\11\2\0\1\7\3\0\1\10\5\0\1\11"+
+    "\33\0";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[16];
+    int [] result = new int[108];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -126,11 +132,23 @@ public class Proyecto {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\11\0\22\0\11\0\33\0\44\0\55\0\66"+
-    "\0\77\0\44\0\110\0\121\0\132\0\11\0\143\0\154";
+    "\0\0\0\34\0\70\0\34\0\124\0\160\0\214\0\250"+
+    "\0\304\0\340\0\374\0\u0118\0\u0134\0\u0150\0\u016c\0\u0188"+
+    "\0\u01a4\0\u01c0\0\u01dc\0\u01f8\0\u0214\0\u0230\0\u024c\0\34"+
+    "\0\34\0\u0268\0\u0284\0\u02a0\0\u02bc\0\u02d8\0\u02f4\0\u0310"+
+    "\0\u032c\0\u0348\0\u0364\0\u0380\0\u039c\0\u03b8\0\u03d4\0\u03f0"+
+    "\0\u040c\0\u0428\0\u0444\0\u0460\0\u047c\0\u0498\0\u04b4\0\u04d0"+
+    "\0\u04ec\0\u0508\0\u0524\0\34\0\u0540\0\u055c\0\u0578\0\u0594"+
+    "\0\u05b0\0\u05cc\0\u05e8\0\u0604\0\u0620\0\u063c\0\u0658\0\u0674"+
+    "\0\u0690\0\u06ac\0\u06c8\0\u06e4\0\u0700\0\u071c\0\34\0\u0738"+
+    "\0\u0754\0\u0770\0\34\0\u078c\0\u07a8\0\u07c4\0\u07e0\0\u07fc"+
+    "\0\34\0\u0818\0\u0834\0\u0850\0\u086c\0\u0888\0\u08a4\0\u08c0"+
+    "\0\u08dc\0\u08f8\0\u0914\0\u0930\0\u094c\0\u0968\0\u0984\0\u09a0"+
+    "\0\u09bc\0\u09d8\0\u09f4\0\u0a10\0\u0a2c\0\u0a48\0\u0a64\0\u0a80"+
+    "\0\u0a9c\0\u0ab8\0\u0ad4\0\u0af0";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[16];
+    int [] result = new int[108];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -153,16 +171,49 @@ public class Proyecto {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\4\1\5\1\3\2\2\1\6\1\7"+
-    "\12\0\1\10\2\0\1\10\5\0\1\2\10\0\1\11"+
-    "\2\0\1\11\2\0\2\12\1\0\1\11\2\0\1\11"+
-    "\1\0\1\13\2\7\1\0\1\14\2\0\1\14\13\0"+
-    "\2\15\6\0\3\13\1\0\1\16\2\0\1\16\11\0"+
-    "\1\17\1\0\2\15\7\0\2\20\5\0\1\17\1\0"+
-    "\2\20";
+    "\1\2\1\3\1\4\1\5\1\3\4\2\1\6\5\2"+
+    "\1\7\1\10\1\2\1\11\5\2\1\12\3\2\35\0"+
+    "\1\13\2\0\1\13\30\0\1\2\40\0\1\14\2\0"+
+    "\1\15\51\0\1\16\22\0\1\17\43\0\1\20\27\0"+
+    "\1\21\12\0\1\22\2\0\1\22\30\0\1\14\2\0"+
+    "\1\14\1\0\1\23\3\0\1\14\1\0\1\14\1\0"+
+    "\16\14\1\0\1\15\2\0\1\15\5\0\1\15\1\0"+
+    "\1\15\1\0\16\15\25\0\1\24\27\0\1\25\44\0"+
+    "\1\26\17\0\1\27\16\0\1\30\2\0\1\30\40\0"+
+    "\1\31\44\0\1\32\33\0\1\33\33\0\1\34\36\0"+
+    "\1\35\24\0\1\36\43\0\1\37\35\0\1\40\4\0"+
+    "\1\41\2\0\1\41\55\0\1\42\23\0\1\43\44\0"+
+    "\1\44\22\0\16\45\27\0\1\46\5\0\1\47\2\0"+
+    "\1\47\30\0\1\50\2\0\1\50\36\0\1\41\2\0"+
+    "\1\45\1\51\20\45\1\0\1\52\2\0\1\52\45\0"+
+    "\16\53\16\0\16\54\5\0\1\55\4\0\1\56\10\0"+
+    "\1\57\7\0\1\60\16\0\16\61\7\0\1\47\2\0"+
+    "\1\53\1\62\20\53\7\0\1\50\2\0\1\54\1\63"+
+    "\20\54\5\0\1\64\4\0\1\55\1\0\1\55\1\0"+
+    "\16\55\10\0\1\65\1\0\1\56\37\0\1\66\37\0"+
+    "\1\67\20\0\1\52\2\0\1\61\1\70\20\61\5\0"+
+    "\1\71\4\0\1\72\10\0\1\73\7\0\1\74\5\0"+
+    "\1\75\4\0\1\76\10\0\1\77\7\0\1\100\12\0"+
+    "\1\56\46\0\1\101\36\0\1\102\10\0\1\103\4\0"+
+    "\1\104\10\0\1\105\7\0\1\106\5\0\1\107\4\0"+
+    "\1\71\1\0\1\71\1\0\16\71\10\0\1\110\1\0"+
+    "\1\72\37\0\1\111\37\0\1\112\16\0\1\113\4\0"+
+    "\1\75\1\0\1\75\1\0\16\75\10\0\1\114\1\0"+
+    "\1\76\37\0\1\115\37\0\1\116\42\0\1\117\23\0"+
+    "\1\120\17\0\1\121\4\0\1\103\1\0\1\103\1\0"+
+    "\16\103\10\0\1\122\1\0\1\104\37\0\1\123\37\0"+
+    "\1\124\23\0\1\72\46\0\1\125\36\0\1\126\15\0"+
+    "\1\76\46\0\1\127\36\0\1\130\32\0\1\64\22\0"+
+    "\1\131\27\0\1\104\46\0\1\132\36\0\1\133\34\0"+
+    "\1\134\23\0\1\135\43\0\1\136\23\0\1\137\33\0"+
+    "\1\140\43\0\1\141\23\0\1\142\41\0\1\107\22\0"+
+    "\1\143\44\0\1\113\22\0\1\144\37\0\1\145\40\0"+
+    "\1\121\22\0\1\146\36\0\1\147\33\0\1\150\42\0"+
+    "\1\117\24\0\1\151\34\0\1\152\33\0\1\153\33\0"+
+    "\1\154\41\0\1\134\33\0\1\136\33\0\1\141\3\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[117];
+    int [] result = new int[2828];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -205,11 +256,13 @@ public class Proyecto {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\1\1\1\11\3\1\3\0\1\1\2\0"+
-    "\1\11\1\0\1\1";
+    "\1\0\1\11\1\1\1\11\6\1\2\0\1\1\12\0"+
+    "\2\11\13\0\1\1\5\0\2\1\1\0\1\1\2\0"+
+    "\1\1\2\0\1\11\5\0\1\1\3\0\1\1\5\0"+
+    "\1\1\2\0\1\11\3\0\1\11\5\0\1\11\33\0";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[16];
+    int [] result = new int[108];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -684,41 +737,47 @@ public class Proyecto {
             { 
             }
             // fall through
-          case 6: break;
+          case 10: break;
           case 2:
             { System.out.print(yytext());
             }
             // fall through
-          case 7: break;
+          case 11: break;
           case 3:
-            { System.out.println("encontre una variable " + yytext());
- 
-    File archivo = new File("tokens.txt");
-    FileWriter escribir;
-    PrintWriter linea;
-      
-          try {
-            archivo.createNewFile();
-            escribir = new FileWriter(archivo, true);
-            linea = new PrintWriter(escribir);
-            linea.println("T:"+yytext());
-            linea.close();
-            escribir.close();
-        } catch (Exception e) {             
- }
+            { System.out.println("se encontro un comentario de una linea // " + yytext());
             }
             // fall through
-          case 8: break;
+          case 12: break;
           case 4:
             { System.out.println("encontre una tabulacion");
             }
             // fall through
-          case 9: break;
+          case 13: break;
           case 5:
-            { System.out.println("encontre una nomenclatura" + yytext());
+            { System.out.println("se encontro un comentario de varias lineas // " + yytext());
             }
             // fall through
-          case 10: break;
+          case 14: break;
+          case 6:
+            { System.out.println("encontre un Real " + yytext());
+            }
+            // fall through
+          case 15: break;
+          case 7:
+            { System.out.println("encontre una cadena " + yytext());
+            }
+            // fall through
+          case 16: break;
+          case 8:
+            { System.out.println("encontre un entero " + yytext());
+            }
+            // fall through
+          case 17: break;
+          case 9:
+            { System.out.println("encontre un boleano " + yytext());
+            }
+            // fall through
+          case 18: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

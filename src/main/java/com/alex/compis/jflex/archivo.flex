@@ -15,51 +15,65 @@ import java.io.PrintWriter;
 %column
 %char
 
-
-
-L=[a-zA-Z]+
+L=[A-Z]+
 l=[a-z]+
 D=[0-9]+
 COMA=","
+PUNTOCOMA=";"
+PUNTO="."
 IGUAL="="
 GUION="_"
+ESPACIO=[ \n]
+COMILLAS="'"
+COMENTARIOA="/*"
+COMENTARIOB="*/"
+COMENTARIOC="//"
 
 /*Espacio en blanco*/
 FinLinea = \r|\n|\r\n
 EspacioBlanco = {FinLinea} |[ \t\f]
 
-/*Palabras reservadas*/
+/*Tipo de Datos*/
 entero="entero"
 real="real"
 cadena="cadena"
-bool="booleano"
-nul="nulo"
+bool="boleano"
+null="nulo"
+v="verdadero"
+f="falso"
 
-/*Declaracion de Variables*/
+/*VARIABLES*/
 /*Nombre de una variable*/
-Nvariable={l}+({L}|{D}|{GUION})*
+Nvariable={l}({l}|{L}|{D}|{GUION})*
+ErrorNVariable=({L}|{D})({l}|{L}|{D}|{GUION})*
 
+/*Datos Asignados*/
+numR={D}+({PUNTO}{D}+)*
+cad={COMILLAS}({L}|{l}|{D})*{COMILLAS}
+bol={v}|{f}
+asignacion={IGUAL}({D}|{numR}|{cad}|{bol})
 
-/*DETECTA NOMENCLATURA DE VARIABLE A,B,C*/
-regla1={L}+{espacio}({L}{COMA})+{L}
+/*Declaracion Variables*/
+vEntero=({entero}{ESPACIO}{Nvariable})({COMA}{Nvariable})*(""|{asignacion})
+vReal=({real}{ESPACIO}{Nvariable})({COMA}{Nvariable})*(""|{asignacion})
+vCadena=({cadena}{ESPACIO}{Nvariable})({COMA}{Nvariable})*(""|{asignacion})
+vBool=({bool}{ESPACIO}{Nvariable})({COMA}{Nvariable})*(""|{asignacion})
 
-/* VARIABLE=DATO */
-i={l}+{espacio}{IGUAL}{D}+
+/*Comentarios*/
+ComenA={COMENTARIOC}({L}|{l}|{D}|{ESPACIO})*
+ComenB={COMENTARIOA}(({L}|{l}|{D}|{ESPACIO})*|{EspacioBlanco})*{COMENTARIOB}
+
+/*Errores*/
+e1={Nvariable}|{ErrorNVariable}
 
 /*detecta un tabulador*/
-espacio=[ \n]
-tab={espacio}{4}
-
-/*Reservadas*/
-reservadas={real}|{entero}|{cadena}|{nul}|{bool}
-
-/*Declarar var*/
-declarar={reservadas}{espacio}{i}
+tab={ESPACIO}{4}
 
 %%
 {tab} {
     System.out.println("encontre una tabulacion");
 }
+/*
 {Nvariable} {
 
     System.out.println("encontre una variable " + yytext());
@@ -76,11 +90,26 @@ declarar={reservadas}{espacio}{i}
             linea.close();
             escribir.close();
         } catch (Exception e) {             
- }
-    
+ }   
 }
-{regla1} {
-    System.out.println("encontre una nomenclatura" + yytext());
+*/
+{vEntero} {
+    System.out.println("encontre un entero " + yytext());
+}
+{vReal} {
+    System.out.println("encontre un Real " + yytext());
+}
+{vCadena} {
+    System.out.println("encontre una cadena " + yytext());
+}
+{vBool} {
+    System.out.println("encontre un boleano " + yytext());
+}
+{ComenA} {
+    System.out.println("se encontro un comentario de una linea // " + yytext());
+}
+{ComenB} {
+    System.out.println("se encontro un comentario de varias lineas // " + yytext());
 }
 {EspacioBlanco} {}
 . {}
