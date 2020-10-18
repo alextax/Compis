@@ -1,5 +1,11 @@
 package com.alex.compis;
-    
+import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
+
 %%
 
 %public
@@ -9,11 +15,14 @@ package com.alex.compis;
 %column
 %char
 
+
+
 L=[a-zA-Z]+
 l=[a-z]+
 D=[0-9]+
 COMA=","
 IGUAL="="
+GUION="_"
 
 /*Espacio en blanco*/
 FinLinea = \r|\n|\r\n
@@ -28,7 +37,7 @@ nul="nulo"
 
 /*Declaracion de Variables*/
 /*Nombre de una variable*/
-Nvariable={l}+(L|D|GUION)*
+Nvariable={l}+({L}|{D}|{GUION})*
 
 
 /*DETECTA NOMENCLATURA DE VARIABLE A,B,C*/
@@ -52,7 +61,23 @@ declarar={reservadas}{espacio}{i}
     System.out.println("encontre una tabulacion");
 }
 {Nvariable} {
+
     System.out.println("encontre una variable " + yytext());
+ 
+    File archivo = new File("tokens.txt");
+    FileWriter escribir;
+    PrintWriter linea;
+    archivo.delete();
+          try {
+            archivo.createNewFile();
+            escribir = new FileWriter(archivo, true);
+            linea = new PrintWriter(escribir);
+            linea.println("T:"+yytext());
+            linea.close();
+            escribir.close();
+        } catch (Exception e) {             
+ }
+    
 }
 {regla1} {
     System.out.println("encontre una nomenclatura" + yytext());

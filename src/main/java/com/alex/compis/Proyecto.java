@@ -3,7 +3,13 @@
 // source: src/main/java/com/alex/compis/jflex/archivo.flex
 
 package com.alex.compis;
-    
+import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
+
 
 // See https://github.com/jflex-de/jflex/issues/222
 @SuppressWarnings("FallThrough")
@@ -63,9 +69,8 @@ public class Proyecto {
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
     "\12\0\1\1\1\2\1\0\1\3\22\0\1\4\13\0"+
-    "\1\5\24\0\3\6\1\7\2\6\1\10\1\6\1\11"+
-    "\2\6\1\7\1\6\1\12\1\13\5\6\1\14\5\6"+
-    "\6\0\32\15\12\0\1\2\u01a2\0\2\2\326\0\u0100\2";
+    "\1\5\3\0\12\6\7\0\32\7\4\0\1\6\1\0"+
+    "\32\10\12\0\1\2\u01a2\0\2\2\326\0\u0100\2";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[1024];
@@ -92,11 +97,11 @@ public class Proyecto {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\2\1\1\2\2\1\1\3\3\0\1\3\4\0"+
-    "\1\4\2\0\1\5\1\0";
+    "\1\0\2\1\1\2\2\1\1\3\3\0\1\3\2\0"+
+    "\1\4\1\0\1\5";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[20];
+    int [] result = new int[16];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -121,12 +126,11 @@ public class Proyecto {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\16\0\34\0\16\0\52\0\70\0\106\0\124"+
-    "\0\142\0\70\0\160\0\176\0\214\0\232\0\250\0\16"+
-    "\0\266\0\304\0\322\0\340";
+    "\0\0\0\11\0\22\0\11\0\33\0\44\0\55\0\66"+
+    "\0\77\0\44\0\110\0\121\0\132\0\11\0\143\0\154";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[20];
+    int [] result = new int[16];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -149,21 +153,16 @@ public class Proyecto {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\4\1\5\1\3\1\2\7\6\1\7"+
-    "\17\0\1\10\2\0\1\10\12\0\1\2\15\0\1\11"+
-    "\2\0\1\11\1\0\10\12\1\0\1\11\2\0\1\11"+
-    "\1\0\1\12\1\13\1\14\4\12\1\7\1\0\1\15"+
-    "\2\0\1\15\17\0\10\16\1\0\1\11\2\0\1\11"+
-    "\1\0\1\12\1\13\1\14\5\12\1\0\1\11\2\0"+
-    "\1\11\1\0\6\12\1\17\1\12\1\0\1\20\2\0"+
-    "\1\20\16\0\1\21\10\16\1\0\1\11\2\0\1\11"+
-    "\1\0\3\12\1\22\4\12\6\0\10\23\1\0\1\11"+
-    "\2\0\1\11\1\0\5\12\1\24\2\12\5\0\1\21"+
-    "\10\23\1\0\1\11\2\0\1\11\1\0\4\12\1\13"+
-    "\3\12";
+    "\1\2\1\3\1\4\1\5\1\3\2\2\1\6\1\7"+
+    "\12\0\1\10\2\0\1\10\5\0\1\2\10\0\1\11"+
+    "\2\0\1\11\2\0\2\12\1\0\1\11\2\0\1\11"+
+    "\1\0\1\13\2\7\1\0\1\14\2\0\1\14\13\0"+
+    "\2\15\6\0\3\13\1\0\1\16\2\0\1\16\11\0"+
+    "\1\17\1\0\2\15\7\0\2\20\5\0\1\17\1\0"+
+    "\2\20";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[238];
+    int [] result = new int[117];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -206,11 +205,11 @@ public class Proyecto {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\1\1\1\11\3\1\3\0\1\1\4\0"+
-    "\1\11\2\0\1\1\1\0";
+    "\1\0\1\11\1\1\1\11\3\1\3\0\1\1\2\0"+
+    "\1\11\1\0\1\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[20];
+    int [] result = new int[16];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -693,6 +692,20 @@ public class Proyecto {
           case 7: break;
           case 3:
             { System.out.println("encontre una variable " + yytext());
+ 
+    File archivo = new File("tokens.txt");
+    FileWriter escribir;
+    PrintWriter linea;
+    archivo.delete();
+          try {
+            archivo.createNewFile();
+            escribir = new FileWriter(archivo, true);
+            linea = new PrintWriter(escribir);
+            linea.println("T:"+yytext());
+            linea.close();
+            escribir.close();
+        } catch (Exception e) {             
+ }
             }
             // fall through
           case 8: break;
