@@ -26,6 +26,11 @@ cadena="cadena"
 bool="booleano"
 nul="nulo"
 
+/*Declaracion de Variables*/
+/*Nombre de una variable*/
+Nvariable={l}+(L|D|GUION)*
+
+
 /*DETECTA NOMENCLATURA DE VARIABLE A,B,C*/
 regla1={L}+{espacio}({L}{COMA})+{L}
 
@@ -39,7 +44,6 @@ tab={espacio}{4}
 /*Reservadas*/
 reservadas={real}|{entero}|{cadena}|{nul}|{bool}
 
-
 /*Declarar var*/
 declarar={reservadas}{espacio}{i}
 
@@ -47,8 +51,11 @@ declarar={reservadas}{espacio}{i}
 {tab} {
     System.out.println("encontre una tabulacion");
 }
+{Nvariable} {
+    System.out.println("encontre una variable " + yytext());
+}
 {regla1} {
-    System.out.println("encontre una regla de nomenclatura " + yytext() );
+    System.out.println("encontre una nomenclatura" + yytext());
 }
 {EspacioBlanco} {}
 . {}

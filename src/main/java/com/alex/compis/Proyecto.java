@@ -63,8 +63,9 @@ public class Proyecto {
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
     "\12\0\1\1\1\2\1\0\1\3\22\0\1\4\13\0"+
-    "\1\5\24\0\32\6\6\0\32\6\12\0\1\2\u01a2\0"+
-    "\2\2\326\0\u0100\2";
+    "\1\5\24\0\3\6\1\7\2\6\1\10\1\6\1\11"+
+    "\2\6\1\7\1\6\1\12\1\13\5\6\1\14\5\6"+
+    "\6\0\32\15\12\0\1\2\u01a2\0\2\2\326\0\u0100\2";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[1024];
@@ -91,10 +92,11 @@ public class Proyecto {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\2\1\1\2\2\1\5\0\1\3\1\0\1\4";
+    "\1\0\2\1\1\2\2\1\1\3\3\0\1\3\4\0"+
+    "\1\4\2\0\1\5\1\0";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[14];
+    int [] result = new int[20];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -119,11 +121,12 @@ public class Proyecto {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\7\0\16\0\7\0\25\0\34\0\43\0\52"+
-    "\0\34\0\61\0\70\0\7\0\77\0\106";
+    "\0\0\0\16\0\34\0\16\0\52\0\70\0\106\0\124"+
+    "\0\142\0\70\0\160\0\176\0\214\0\232\0\250\0\16"+
+    "\0\266\0\304\0\322\0\340";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[14];
+    int [] result = new int[20];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -146,14 +149,21 @@ public class Proyecto {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\4\1\5\1\3\1\2\1\6\10\0"+
-    "\1\7\2\0\1\7\3\0\1\2\6\0\1\10\2\0"+
-    "\1\10\1\0\1\11\1\0\1\12\2\0\1\12\10\0"+
-    "\1\13\1\0\1\14\2\0\1\14\7\0\1\15\1\13"+
-    "\6\0\1\16\5\0\1\15\1\16";
+    "\1\2\1\3\1\4\1\5\1\3\1\2\7\6\1\7"+
+    "\17\0\1\10\2\0\1\10\12\0\1\2\15\0\1\11"+
+    "\2\0\1\11\1\0\10\12\1\0\1\11\2\0\1\11"+
+    "\1\0\1\12\1\13\1\14\4\12\1\7\1\0\1\15"+
+    "\2\0\1\15\17\0\10\16\1\0\1\11\2\0\1\11"+
+    "\1\0\1\12\1\13\1\14\5\12\1\0\1\11\2\0"+
+    "\1\11\1\0\6\12\1\17\1\12\1\0\1\20\2\0"+
+    "\1\20\16\0\1\21\10\16\1\0\1\11\2\0\1\11"+
+    "\1\0\3\12\1\22\4\12\6\0\10\23\1\0\1\11"+
+    "\2\0\1\11\1\0\5\12\1\24\2\12\5\0\1\21"+
+    "\10\23\1\0\1\11\2\0\1\11\1\0\4\12\1\13"+
+    "\3\12";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[77];
+    int [] result = new int[238];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -196,11 +206,11 @@ public class Proyecto {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\1\1\1\11\2\1\5\0\1\11\1\0"+
-    "\1\1";
+    "\1\0\1\11\1\1\1\11\3\1\3\0\1\1\4\0"+
+    "\1\11\2\0\1\1\1\0";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[14];
+    int [] result = new int[20];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -675,22 +685,27 @@ public class Proyecto {
             { 
             }
             // fall through
-          case 5: break;
+          case 6: break;
           case 2:
             { System.out.print(yytext());
             }
             // fall through
-          case 6: break;
-          case 3:
-            { System.out.println("encontre una tabulacion");
-            }
-            // fall through
           case 7: break;
-          case 4:
-            { System.out.println("encontre una regla de nomenclatura " + yytext() );
+          case 3:
+            { System.out.println("encontre una variable " + yytext());
             }
             // fall through
           case 8: break;
+          case 4:
+            { System.out.println("encontre una tabulacion");
+            }
+            // fall through
+          case 9: break;
+          case 5:
+            { System.out.println("encontre una nomenclatura" + yytext());
+            }
+            // fall through
+          case 10: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
