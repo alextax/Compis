@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 
 // See https://github.com/jflex-de/jflex/issues/222
 @SuppressWarnings("FallThrough")
-public class Proyecto {
+public class nuevo {
 
   /** This character denotes the end of file. */
   public static final int YYEOF = -1;
@@ -364,7 +364,7 @@ public class Proyecto {
    *
    * @param   in  the java.io.Reader to read input from.
    */
-  public Proyecto(java.io.Reader in) {
+  public nuevo(java.io.Reader in) {
     this.zzReader = in;
   }
 
@@ -824,7 +824,7 @@ public class Proyecto {
    */
   public static void main(String argv[]) {
     if (argv.length == 0) {
-      System.out.println("Usage : java Proyecto [ --encoding <name> ] <inputfile(s)>");
+      System.out.println("Usage : java nuevo [ --encoding <name> ] <inputfile(s)>");
     }
     else {
       int firstFilePos = 0;
@@ -841,11 +841,11 @@ public class Proyecto {
         }
       }
       for (int i = firstFilePos; i < argv.length; i++) {
-        Proyecto scanner = null;
+        nuevo scanner = null;
         try {
           java.io.FileInputStream stream = new java.io.FileInputStream(argv[i]);
           java.io.Reader reader = new java.io.InputStreamReader(stream, encodingName);
-          scanner = new Proyecto(reader);
+          scanner = new nuevo(reader);
           while ( !scanner.zzAtEOF ) scanner.yylex();
         }
         catch (java.io.FileNotFoundException e) {

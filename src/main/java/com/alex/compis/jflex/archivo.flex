@@ -28,6 +28,13 @@ COMILLAS="'"
 COMENTARIOA="/*"
 COMENTARIOB="*/"
 COMENTARIOC="//"
+ARITMETICA="+"|"-"|"*"|"/"|"^"|"%"  
+PARENTESISA="("
+PARENTESISC=")"
+PALABRAS_RESERVADAS="escribir"|"leer"|"si"|"entonces"|"devolver"|"sino"|"desde"|"mientras"|"incrementar"|"hacer"|"decrementar"|"mientras"|{bol}
+CONDICIONES=">"|"<"|"=="|"!="
+
+
 
 /*Espacio en blanco*/
 FinLinea = \r|\n|\r\n
@@ -54,17 +61,39 @@ bol={v}|{f}
 asignacion={IGUAL}({D}|{numR}|{cad}|{bol})
 
 /*Declaracion Variables*/
-vEntero=({entero}{ESPACIO}{Nvariable})({COMA}{Nvariable})*(""|{asignacion})
-vReal=({real}{ESPACIO}{Nvariable})({COMA}{Nvariable})*(""|{asignacion})
-vCadena=({cadena}{ESPACIO}{Nvariable})({COMA}{Nvariable})*(""|{asignacion})
-vBool=({bool}{ESPACIO}{Nvariable})({COMA}{Nvariable})*(""|{asignacion})
+vEntero=({entero}{ESPACIO}{Nvariable})({COMA}{Nvariable})*
+vReal=({real}{ESPACIO}{Nvariable})({COMA}{Nvariable})*
+vCadena=({cadena}{ESPACIO}{Nvariable})({COMA}{Nvariable})*
+vBool=({bool}{ESPACIO}{Nvariable})({COMA}{Nvariable})*
 
-/*Comentarios*/
-ComenA={COMENTARIOC}({L}|{l}|{D}|{ESPACIO})*
-ComenB={COMENTARIOA}(({L}|{l}|{D}|{ESPACIO})*|{EspacioBlanco})*{COMENTARIOB}
+/*COMENTARIOS*/
+/*comentario de una linea*/
+ComenA={COMENTARIOC}({L}|{l}|{D}|{ESPACIO}|{ARITMETICA})*
+
+/*comentario de varias lineas*/
+ComenB={COMENTARIOA}({L}|{l}|{D}|{ESPACIO}|{EspacioBlanco}|"+"|"-"|"_"|"*"|"/*")*{COMENTARIOB}
+
+
+/*FUNCIONES*/
+tipoF={entero}|{real}|{cadena}|{bool}
+funcion={tipoF}{ESPACIO}{Nvariable}{PARENTESISA}
+
+/*especiales*/
+CE1="cadenaAEntero"
+CE2="cadenaAReal"
+CE3="cadenaABoleano"
+CE4="seno"|"coseno"|"tangente"|"logaritmo"|"raiz"
+funcionE1={entero}{ESPACIO}{CE1}{PARENTESISA}{cadena}{ESPACIO}{Nvariable}{PARENTESISC}
+funcionE2={real}{ESPACIO}{CE2}{PARENTESISA}{cadena}{ESPACIO}{Nvariable}{PARENTESISC}
+funcionE3={bool}{ESPACIO}{CE3}{PARENTESISA}{cadena}{ESPACIO}{Nvariable}{PARENTESISC}
+funcionA={real}{ESPACIO}{CE4}{PARENTESISA}{real}{ESPACIO}{Nvariable}{PARENTESISC}
 
 /*Errores*/
-e1={Nvariable}|{ErrorNVariable}
+e1={ErrorNVariable} 
+e2=({vEntero}|{vReal}|{vCadena}|{vBool}){COMA}
+e3={funcion}({vEntero}|{vCadena}|{vReal}|{vBool}|{COMA})+{EspacioBlanco}
+e4={funcion}({COMA})
+error={e1}|{e2}|{e3}|{e4}
 
 /*detecta un tabulador*/
 tab={ESPACIO}{4}
@@ -75,9 +104,7 @@ tab={ESPACIO}{4}
 }
 /*
 {Nvariable} {
-
     System.out.println("encontre una variable " + yytext());
- 
     File archivo = new File("tokens.txt");
     FileWriter escribir;
     PrintWriter linea;
@@ -90,11 +117,17 @@ tab={ESPACIO}{4}
             linea.close();
             escribir.close();
         } catch (Exception e) {             
- }   
+    }   
 }
 */
+{error} {
+    System.out.println("Se encontro un error " + yytext());
+}
 {vEntero} {
-    System.out.println("encontre un entero " + yytext());
+    System.out.println("encontre un entero ");
+    String caden = yytext();
+    caden = caden.substring(7,caden.length()-1);
+    System.out.println(caden);
 }
 {vReal} {
     System.out.println("encontre un Real " + yytext());
@@ -106,10 +139,70 @@ tab={ESPACIO}{4}
     System.out.println("encontre un boleano " + yytext());
 }
 {ComenA} {
-    System.out.println("se encontro un comentario de una linea // " + yytext());
+    System.out.println("encontre un comentario de una linea " + yytext());
 }
 {ComenB} {
-    System.out.println("se encontro un comentario de varias lineas // " + yytext());
+    System.out.println("encontre un comentario de varias lineas " + yytext());
 }
+{Nvariable} { 
+   System.out.println("encontre un identificador  " + yytext());
+}
+{IGUAL} {
+    System.out.println("encontre un Operando =  " + yytext());
+}
+{D} { 
+    System.out.println("encontre un numero entero " + yytext());
+}
+{numR} { 
+    System.out.println("encontre un numero Real " + yytext());
+}
+{cad} {
+    System.out.println("encontre una cadena de texto " + yytext());
+}
+{ARITMETICA} {
+    System.out.println("encontre un operando aritmetico " + yytext());
+}
+{PUNTOCOMA} {
+    System.out.println("encontre un punto y coma " + yytext());
+}
+{PARENTESISA} {
+    System.out.println("encontre un parentesis abierto" + yytext());
+}
+{PARENTESISC} {
+    System.out.println("encontre un parentesis abierto" + yytext());
+}
+{PALABRAS_RESERVADAS} {
+    System.out.println("encontre una palabra reservada " + yytext());
+}
+{funcion} {
+    System.out.println("encontre una funcion " + yytext());  
+    System.out.println("encontre un parentesis " + yytext());
+    System.out.println("encontre una Identificador " + yytext());
+}
+{funcionE1} {
+    System.out.println("encontre una funcion especial ENTERA " + yytext());  
+    System.out.println("encontre una palabra reservada" + yytext());
+    System.out.println("encontre un IDENTIFICADOR" + yytext());
+    System.out.println("encontre un parentesis " + yytext());
+}
+{funcionE2} {
+    System.out.println("encontre una funcion especial REAL " + yytext());  
+    System.out.println("encontre un identificador" + yytext());
+    System.out.println("encontre un parentesis " + yytext());
+    System.out.println("encontre un IDENTIFICADOR " + yytext());
+}
+{funcionE3} {
+    System.out.println("encontre una funcion especial BOLEANA " + yytext());  
+    System.out.println("encontre una palabra reservada" + yytext());
+    System.out.println("encontre un parentesis " + yytext());
+    System.out.println("encontre un IDENTIFICADOR " + yytext());
+}
+{funcionA} {
+    System.out.println("encontre una funcion Aritmetica REAL " + yytext());  
+    System.out.println("encontre una palabra reservada" + yytext());
+    System.out.println("encontre un parentesis " + yytext());
+    System.out.println("encontre un IDENTIFICADOR " + yytext());
+}
+
 {EspacioBlanco} {}
 . {}

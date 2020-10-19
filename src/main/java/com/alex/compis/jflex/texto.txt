@@ -1,5 +1,5 @@
-    asd123
-//Esto es un comentario
-/*comentario de varias*/
-/*comentario de varias
-lineas*/
+jlsadflkfadsjkldafs
+entero nuevo
+entero funcion(nuevo
+entero funcion(fsda)
+real seno(real n)
