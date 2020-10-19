@@ -31,7 +31,7 @@ COMENTARIOC="//"
 ARITMETICA="+"|"-"|"*"|"/"|"^"|"%"  
 PARENTESISA="("
 PARENTESISC=")"
-PALABRAS_RESERVADAS="escribir"|"leer"|"si"|"entonces"|"devolver"|"sino"|"desde"|"mientras"|"incrementar"|"hacer"|"decrementar"|"mientras"|{bol}
+PALABRAS_RESERVADAS="escribir"|"leer"|"si"|"entonces"|"devolver"|"sino"|"desde"|"mientras"|"incrementar"|"hacer"|"decrementar"|"mientras"|{bol}|"propiedades publicas"|"propiedades privadas"|"propiedades protegidas"|"metodos publicos"|"metodos privados"|"metodos protegidos"|"instanciar"|"eliminar"|"constructor"|"destructor"|"nulo"
 CONDICIONES=">"|"<"|"=="|"!="
 
 
@@ -52,7 +52,7 @@ f="falso"
 /*VARIABLES*/
 /*Nombre de una variable*/
 Nvariable={l}({l}|{L}|{D}|{GUION})*
-ErrorNVariable=({L}|{D})({l}|{L}|{D}|{GUION})*
+ErrorNVariable={D}({l}|{L}|{D}|{GUION})*
 
 /*Datos Asignados*/
 numR={D}+({PUNTO}{D}+)*
@@ -76,7 +76,14 @@ ComenB={COMENTARIOA}({L}|{l}|{D}|{ESPACIO}|{EspacioBlanco}|"+"|"-"|"_"|"*"|"/*")
 
 /*FUNCIONES*/
 tipoF={entero}|{real}|{cadena}|{bool}
-funcion={tipoF}{ESPACIO}{Nvariable}{PARENTESISA}
+funcion={tipoF}{ESPACIO}{Nvariable}(""|{ESPACIO}){PARENTESISA}
+
+/*CLASES*/
+cl="clase"
+ex="extiende"
+Nclase={L}({l}|{L}|{D}|{GUION})*
+clase={cl}{ESPACIO}{Nclase}
+extiende={ex}{ESPACIO}{Nclase}
 
 /*especiales*/
 CE1="cadenaAEntero"
@@ -88,12 +95,27 @@ funcionE2={real}{ESPACIO}{CE2}{PARENTESISA}{cadena}{ESPACIO}{Nvariable}{PARENTES
 funcionE3={bool}{ESPACIO}{CE3}{PARENTESISA}{cadena}{ESPACIO}{Nvariable}{PARENTESISC}
 funcionA={real}{ESPACIO}{CE4}{PARENTESISA}{real}{ESPACIO}{Nvariable}{PARENTESISC}
 
+/*incluir*/
+inc="incluir"
+incluir={inc}{ESPACIO}{COMILLAS}({D}|{L}|{l}|{GUION})+{COMILLAS}
+
 /*Errores*/
 e1={ErrorNVariable} 
 e2=({vEntero}|{vReal}|{vCadena}|{vBool}){COMA}
-e3={funcion}({vEntero}|{vCadena}|{vReal}|{vBool}|{COMA})+{EspacioBlanco}
-e4={funcion}({COMA})
-error={e1}|{e2}|{e3}|{e4}
+e3={funcion}({COMA})
+e4={funcion}{Nvariable}
+t="propiedades"|"metodos"
+t1="Propeidades"|"Metodos"
+e5={t}({l}|{L}|{D})+
+e6={t}{ESPACIO}{Nclase}
+e7={t1}
+t2="publicas:"|"privadas:"|"protegidas:"
+e8={t2}{EspacioBlanco}
+e9=({cl}|{ex}){ESPACIO}{Nvariable}
+e10={inc}{COMILLAS}({D}|{L}|{l}|{GUION})+{COMILLAS}
+e11={inc}{ESPACIO}({D}|{L}|{l}|{GUION})+{COMILLAS}
+e12={inc}{ESPACIO}{COMILLAS}({D}|{L}|{l}|{GUION})+
+error={e1}|{e2}|{e3}|{e4}|{e5}|{e6}|{e7}|{e8}|{e9}|{e10}|{e11}|{e12}
 
 /*detecta un tabulador*/
 tab={ESPACIO}{4}
@@ -144,9 +166,6 @@ tab={ESPACIO}{4}
 {ComenB} {
     System.out.println("encontre un comentario de varias lineas " + yytext());
 }
-{Nvariable} { 
-   System.out.println("encontre un identificador  " + yytext());
-}
 {IGUAL} {
     System.out.println("encontre un Operando =  " + yytext());
 }
@@ -169,7 +188,7 @@ tab={ESPACIO}{4}
     System.out.println("encontre un parentesis abierto" + yytext());
 }
 {PARENTESISC} {
-    System.out.println("encontre un parentesis abierto" + yytext());
+    System.out.println("encontre un parentesis cerrado" + yytext());
 }
 {PALABRAS_RESERVADAS} {
     System.out.println("encontre una palabra reservada " + yytext());
@@ -191,7 +210,7 @@ tab={ESPACIO}{4}
     System.out.println("encontre un parentesis " + yytext());
     System.out.println("encontre un IDENTIFICADOR " + yytext());
 }
-{funcionE3} {
+{funcionE3} { 
     System.out.println("encontre una funcion especial BOLEANA " + yytext());  
     System.out.println("encontre una palabra reservada" + yytext());
     System.out.println("encontre un parentesis " + yytext());
@@ -203,6 +222,22 @@ tab={ESPACIO}{4}
     System.out.println("encontre un parentesis " + yytext());
     System.out.println("encontre un IDENTIFICADOR " + yytext());
 }
-
+{clase} {
+    System.out.println("encontre una clase " + yytext());
+    System.out.println("encontre un identificador " + yytext());
+}
+{extiende} {
+    System.out.println("encontre un extiende " + yytext());
+    System.out.println("encontre un identificador " + yytext());
+}
+{PUNTO} {
+    System.out.println("encontre un punto " + yytext());
+}
+{Nvariable} { 
+   System.out.println("encontre un identificador  " + yytext());
+}
+{Nclase} { 
+   System.out.println("encontre un identificador  " + yytext());
+}
 {EspacioBlanco} {}
 . {}

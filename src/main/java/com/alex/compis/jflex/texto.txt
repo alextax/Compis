@@ -1,5 +1,16 @@
-jlsadflkfadsjkldafs
-entero nuevo
-entero funcion(nuevo
-entero funcion(fsda)
-real seno(real n)
+clase Rectangulo
+propiedades privadas:
+    entero area
+propiedades publicas :
+    entero ancho
+    entero largo
+metodos publicos :
+    entero obtenerArea ()
+        devolver ancho * largo
+
+entero principal ()
+    Rectangulo r = instanciar Rectangulo ()
+// accediendo a la propiedad ancho
+    escribir r . ancho
+// accediendo a una propiedad privada
+    escribir r . area // generar a un error semantico
