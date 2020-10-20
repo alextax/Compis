@@ -5,24 +5,17 @@
  */
 package com.alex.compis;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.Reader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
- * @author Jose-PC
+ * @author YADI
  */
-public class Main {
+public class nuevo {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        System.out.println("");
     }
     
 }

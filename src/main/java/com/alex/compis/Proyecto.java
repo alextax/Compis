@@ -659,6 +659,7 @@ public class Proyecto {
             linea.println("PALABRA RESERVADA: "+nuevo);
             linea.close();
             escribir.close();
+            verificar();
         } catch (Exception e) {
             System.out.println("ERROR : " + e);
         }
@@ -675,6 +676,7 @@ public class Proyecto {
             linea.println("INDENTIFICADOR(ES): "+nuevo);
             linea.close();
             escribir.close();
+            verificar();
         } catch (Exception e) {
             System.out.println("ERROR : " + e);
         }
@@ -691,6 +693,7 @@ public class Proyecto {
             linea.println("SIGNO: "+nuevo);
             linea.close();
             escribir.close();
+            verificar();
         } catch (Exception e) {
             System.out.println("ERROR : " + e);
         }
@@ -707,6 +710,7 @@ public class Proyecto {
             linea.println("OPERADOR: "+nuevo);
             linea.close();
             escribir.close();
+            verificar();
         } catch (Exception e) {
             System.out.println("ERROR : " + e);
         }
@@ -723,6 +727,7 @@ public class Proyecto {
             linea.println("OPERADOR ARITMETICO : "+nuevo);
             linea.close();
             escribir.close();
+            verificar();
         } catch (Exception e) {
             System.out.println("ERROR : " + e);
         }
@@ -739,6 +744,7 @@ public class Proyecto {
             linea.println("NUMERO: "+nuevo);
             linea.close();
             escribir.close();
+            verificar();
         } catch (Exception e) {
             System.out.println("ERROR : " + e);
         }
@@ -755,6 +761,7 @@ public class Proyecto {
             linea.println("VARIABLE: "+nuevo);
             linea.close();
             escribir.close();
+            verificar();
         } catch (Exception e) {
             System.out.println("ERROR : " + e);
         }
@@ -771,6 +778,7 @@ public class Proyecto {
             linea.println("CLASE: "+nuevo);
             linea.close();
             escribir.close();
+            verificar();
         } catch (Exception e) {
             System.out.println("ERROR : " + e);
         }
@@ -787,8 +795,40 @@ public class Proyecto {
             linea.println("FUNCION: "+nuevo);
             linea.close();
             escribir.close();
+            verificar();
         } catch (Exception e) {
             System.out.println("ERROR : " + e);
+        }
+    }
+    void escribirError(String nuevo)
+    {
+        File archivo = new File("tokens.txt");
+        archivo.delete();
+        archivo = new File("tabla.txt");
+        archivo.delete();
+        archivo = new File("errores.txt");
+        FileWriter escribir;
+        PrintWriter linea;
+          try {
+            archivo.createNewFile();
+            escribir = new FileWriter(archivo, true);
+            linea = new PrintWriter(escribir);
+            linea.println("ERROR ENCONTRADO EN LA LINEA: "+nuevo);
+            linea.close();
+            escribir.close();
+        } catch (Exception e) {
+            System.out.println("ERROR : " + e);
+        }
+    }
+    void verificar()
+    {
+        File archivo = new File("errores.txt");
+        if(archivo.exists())
+        {
+            archivo = new File("tokens.txt");
+            archivo.delete();
+            archivo = new File("tabla.txt");
+            archivo.delete();
         }
     }
 
@@ -802,6 +842,8 @@ public class Proyecto {
       File archivo = new File("tokens.txt");
     archivo.delete();
     archivo = new File("tabla.txt");
+    archivo.delete();
+    archivo = new File("errores.txt");
     archivo.delete();
     this.zzReader = in;
   }
@@ -1192,7 +1234,8 @@ public class Proyecto {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1:
-            { System.out.println("Se encontro un error " + yytext());
+            { String linea = String.valueOf(yyline+1);
+    escribirError(linea);
             }
             // fall through
           case 26: break;
