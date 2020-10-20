@@ -825,9 +825,9 @@ public class Proyecto {
         File archivo = new File("errores.txt");
         if(archivo.exists())
         {
-            archivo = new File("tokens.txt");:
+            archivo = new File("tokens.txt");
             archivo.delete();
-            archivo = new File("tabla.txt");:
+            archivo = new File("tabla.txt");
             archivo.delete();
         }
     }

@@ -1296,7 +1296,7 @@ public class Proyecto {
             // fall through
           case 37: break;
           case 13:
-            { System.out.println("encontre una tabulacion");
+            { escribirSigno("Identacion " + yytext());
             }
             // fall through
           case 38: break;

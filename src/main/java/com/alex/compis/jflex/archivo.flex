@@ -330,7 +330,7 @@ tab={ESPACIO}{4}
 
 %%
 {tab} {
-    System.out.println("encontre una tabulacion");
+    escribirSigno("Identacion " + yytext());
 }
 {vEntero} {
     String caden = yytext();
