@@ -1,16 +1,42 @@
-clase Rectangulo
-propiedades privadas:
-    entero area
-propiedades publicas :
-    entero ancho
-    entero largo
-metodos publicos :
-    entero obtenerArea ()
-        devolver ancho * largo
+/* area de inclusion de bibliotecas externas */
+// ninguna libreria que cargar
 
-entero principal ()
-    Rectangulo r = instanciar Rectangulo ()
-// accediendo a la propiedad ancho
-    escribir r . ancho
-// accediendo a una propiedad privada
-    escribir r . area // generar a un error semantico
+/* area de declaracion de clases */
+clase Impar
+    propiedades publicas :
+    cadena hola
+    metodos publicos : 
+        entero esImpar ( entero numero )
+        si numero % 2 entonces
+        devolver 1
+        sino
+        devolver 0
+
+clase HolaMundo
+    propiedades privadas:
+        entero a
+        cadena nombre
+        Impar i:
+        metodos publicos :
+    constructor ()
+        i = nuevo Impar ()
+        a = 0
+        nombre = ' '
+
+entero inicio ()
+    escribir ' escriba su nombre '
+    // se guarda una cadena de texto en la variable nombre
+    leer nombre ;
+    escribir ' escriba un valor entre 1 y 30 '
+    // se guarda un numero en la variable a
+    leer a
+    /* escribe en pantalla la constante junto
+    * al valor de la variable nombre
+    */
+    escribir ' Hola ', nombre
+    si i . esImpar ( a ) entonces
+    escribir ' El numero que eligio es impar '
+    sino
+    escribir ' El numero que eligio es par '
+    devolver 0
+    /* area de declaracion de funcion de carga inicial */

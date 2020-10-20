@@ -1,0 +1,8 @@
+CLASE: Impar
+VARIABLE: hola
+FUNCION: esImpar 
+VARIABLE: numero
+CLASE: HolaMundo
+VARIABLE: a
+VARIABLE: nombre
+FUNCION: inicio 
