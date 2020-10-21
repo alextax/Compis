@@ -31,6 +31,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- se agrego un pluging nuevo para tener un jar y ejecutarlo-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>

@@ -15,10 +15,11 @@ import java.io.PrintWriter;
 %column
 %char
 
-
+/*manera de usar codigo de java en jflex*/
 %init{ 
+/*Se crear los archivos donde se guardan los tokens y la demas informacion a usar*/
     File archivo = new File("tokens.txt");
-    archivo.delete();
+    archivo.delete();/*se elminia lo que se tenia antes para poder generar un archivo en limpio en cada ejecucion*/
     archivo = new File("tabla.txt");
     archivo.delete();
     archivo = new File("errores.txt");
@@ -27,23 +28,28 @@ import java.io.PrintWriter;
 
 //-------------EscribirTokens---------------
 %{
-    void escribirPR(String nuevo)
+/*se crea el metodo escribir para insertar datos en las palabras reservadas*/
+
+    void escribirPR(String nuevo) /*recibimos lo que posteriormente se dara su escritura*/
     {
+/*abrimos el archivo tokens donde queremos escribir*/
         File archivo = new File("tokens.txt");
         FileWriter escribir;
         PrintWriter linea;
           try {
+/*agreagamos los datos que corresponden*/
             archivo.createNewFile();
-            escribir = new FileWriter(archivo, true);
+            escribir = new FileWriter(archivo, true);/*le damos un true para que siga escribiendo de corrido y no cmo algo nuevo*/
             linea = new PrintWriter(escribir);
-            linea.println("PALABRA RESERVADA: "+nuevo);
+            linea.println("PALABRA RESERVADA: "+nuevo);/*agregamos los datos*/
             linea.close();
             escribir.close();
             verificar();
         } catch (Exception e) {
-            System.out.println("ERROR : " + e);
+            System.out.println("ERROR : " + e);/*capturamos posibles erroes*/
         }
     }
+/*metodo para escribir identificadores en el archivo tokens*/
     void escribirIdentificador(String nuevo)
     {
         File archivo = new File("tokens.txt");
@@ -61,6 +67,7 @@ import java.io.PrintWriter;
             System.out.println("ERROR : " + e);
         }
     }
+/*se crea el metodo para escribir los singos en la tabla tokens*/
     void escribirSigno(String nuevo)
     {
         File archivo = new File("tokens.txt");
@@ -78,6 +85,8 @@ import java.io.PrintWriter;
             System.out.println("ERROR : " + e);
         }
     }
+/*se crea el metodo para escribir los operadores en la tabla tokens*/
+
     void escribirOperando(String nuevo)
     {
         File archivo = new File("tokens.txt");
@@ -95,6 +104,7 @@ import java.io.PrintWriter;
             System.out.println("ERROR : " + e);
         }
     }
+/*Se crea el metodo para escribir los operadores */
     void escribirOperandoA(String nuevo)
     {
         File archivo = new File("tokens.txt");
@@ -112,6 +122,7 @@ import java.io.PrintWriter;
             System.out.println("ERROR : " + e);
         }
     }
+/*Escribimos los numeros en la tabla tokens con el sig metodo*/
     void escribirNumero(String nuevo)
     {
         File archivo = new File("tokens.txt");
@@ -132,6 +143,7 @@ import java.io.PrintWriter;
 %}
 //-------------EscribirVariablesFuncionesClases---------------
 %{
+/*creamos el metodo para escribir las variables en "tabla.txt"*/
     void escribirVariable(String nuevo)
     {
         File archivo = new File("tabla.txt");
@@ -149,6 +161,7 @@ import java.io.PrintWriter;
             System.out.println("ERROR : " + e);
         }
     }
+/*metodo para poder escribir los nombres de las clases en la tabla.txt*/
     void escribirClaseT(String nuevo)
     {
         File archivo = new File("tabla.txt");
@@ -166,6 +179,7 @@ import java.io.PrintWriter;
             System.out.println("ERROR : " + e);
         }
     }
+/*metodo para guardar los nombres de las funciones en la tabla */
     void escribirFuncionT(String nuevo)
     {
         File archivo = new File("tabla.txt");
@@ -187,6 +201,7 @@ import java.io.PrintWriter;
 
 //------------------EscribirErrores-----------------
 %{
+/*metodo para mostrar los erroes los cuales se guardaran en errores.txt es metodo elimina lo antes hecho y solo muestra los errores*/
     void escribirError(String nuevo)
     {
         File archivo = new File("tokens.txt");
@@ -209,6 +224,7 @@ import java.io.PrintWriter;
     }
 %}
 %{
+/*verificamos los erroes */
     void verificar()
     {
         File archivo = new File("errores.txt");
@@ -221,9 +237,11 @@ import java.io.PrintWriter;
         }
     }
 %}
+/*tabla de simbolos usados*/
 L=[A-Z]+
 l=[a-z]+
 D=[0-9]+
+/*declaramos las palabras reservadas a usar*/
 COMA=","
 PUNTOCOMA=";"
 PUNTO="."
@@ -258,7 +276,7 @@ f="falso"
 
 /*VARIABLES*/
 /*Nombre de una variable*/
-Nvariable={l}({l}|{L}|{D}|{GUION})*
+Nvariable={l}({l}|{L}|{D}|{GUION})* /*tenemos las condiciones para la creacion de variables*/
 ErrorNVariable=({D}|{L})({l}|{L}|{D}|{GUION})*
 
 /*Datos Asignados*/
@@ -333,13 +351,15 @@ tab={ESPACIO}{4}
     escribirSigno("Identacion " + yytext());
 }
 {vEntero} {
+/*encotramos el texto y lo guardamos como string para su posterior uso*/
     String caden = yytext();
-    caden = caden.substring(7,caden.length());
-    escribirPR("entero");
-    escribirIdentificador(caden);
+    caden = caden.substring(7,caden.length());/*usamos substring para mostra la posicion que deseamos obtener del texto*/
+    escribirPR("entero"); /*usamos el metodo repectivo para guardar*/
+    escribirIdentificador(caden);/*guardamos el texto de la manera especifica*/
     escribirVariable(caden);
 }
 {vReal} {
+/*encotramos el texto y lo guardamos */
     String caden = yytext();
     caden = caden.substring(5,caden.length());
     escribirPR("real");
@@ -347,6 +367,7 @@ tab={ESPACIO}{4}
     escribirVariable(caden);
 }
 {vCadena} {
+/*encotramos el texto y lo guardamos */
     String caden = yytext();
     caden = caden.substring(7,caden.length());
     escribirPR("cadena");
@@ -354,6 +375,7 @@ tab={ESPACIO}{4}
     escribirVariable(caden);
 }
 {vBool} {
+/*encotramos el texto y lo guardamos */
     String caden = yytext();
     caden = caden.substring(8,caden.length());
     escribirPR("boleano");
@@ -361,43 +383,56 @@ tab={ESPACIO}{4}
     escribirVariable(caden);
 }
 {ComenA} {
+/*encotramos el texto y lo guardamos */
     escribirSigno("//");
 }
 {ComenB} {
+/*encotramos el texto y lo guardamos */
     escribirSigno("/*");
     escribirSigno("*/");
 }
 {IGUAL} {
+/*encotramos el texto y lo guardamos */
     escribirOperando(yytext());
 }
 {D} {
+/*encotramos el texto y lo guardamos */
     escribirNumero(yytext());
 }
 {numR} { 
+/*encotramos el texto y lo guardamos */
     escribirNumero(yytext());
 }
 {cad} {
+/*encotramos el texto y lo guardamos */
     escribirSigno("'");
     escribirSigno("'");
 }
 {ARITMETICA} {
+/*encotramos el texto y lo guardamos */
     escribirOperandoA(yytext());
 }
 {PUNTOCOMA} {
+/*encotramos el texto y lo guardamos */
     escribirSigno(yytext());
 }
 {PARENTESISA} {
+/*encotramos el texto y lo guardamos */
     escribirSigno(yytext());
 }
 {PARENTESISC} {
+/*encotramos el texto y lo guardamos */
     escribirSigno(yytext());
 }
 {PALABRAS_RESERVADAS} {
+/*encotramos el texto y lo guardamos */
     escribirPR(yytext());
 }
 {funcion} {
+/*encotramos el texto y lo guardamos */
    String cad1 = yytext();
    int r = 0;
+    /*vereficamos si existe antes de guardar*/
    boolean prueba = true;
    while ( prueba ) {
          if(cad1.charAt(r)==' ')
@@ -417,6 +452,7 @@ tab={ESPACIO}{4}
     escribirFuncionT(caden);
 }
 {funcionE1} { 
+/*encotramos el texto y lo guardamos */
     escribirPR("entero");
     escribirPR("cadenaAEntero");
     escribirPR("cadena");
@@ -429,6 +465,7 @@ tab={ESPACIO}{4}
     escribirVariable(cad);
 }
 {funcionE2} {
+/*encotramos el texto y lo guardamos */
     escribirPR("real");
     escribirPR("cadenaAReal");
     escribirPR("cadena");
@@ -441,6 +478,7 @@ tab={ESPACIO}{4}
     escribirVariable(cad);
 }
 {funcionE3} { 
+/*encotramos el texto y lo guardamos */
     escribirPR("boleano");
     escribirPR("cadenaABoleano");
     escribirPR("cadena");
@@ -453,12 +491,14 @@ tab={ESPACIO}{4}
     escribirVariable(cad);
 }
 {funcionA} {
+/*encotramos el texto y lo guardamos */
     escribirPR("real");
     escribirPR("real");
     escribirSigno("(");
     escribirSigno(")");
     String cad1 = yytext();
     int r = 0;
+/*verificamos si se existe */
     boolean prueba = true;
     while ( prueba ) {
          if(cad1.charAt(r)=='(')
@@ -478,6 +518,7 @@ tab={ESPACIO}{4}
     escribirVariable(cad);
 }
 {clase} {
+/*encotramos el texto y lo guardamos */
     escribirPR("clase");
     String cad = yytext();
     cad = cad.substring(6,cad.length());
@@ -485,38 +526,48 @@ tab={ESPACIO}{4}
     escribirClaseT(cad);
 }
 {extiende} {
+/*encotramos el texto y lo guardamos */
     escribirPR("extiende");
     String cad = yytext();
     cad = cad.substring(9,cad.length());
     escribirIdentificador(cad);
 }
 {PUNTO} {
+/*encotramos el texto y lo guardamos */
     escribirSigno(yytext());
 }
 {CONDICIONES} {
+/*encotramos el texto y lo guardamos */
     escribirOperando(yytext());
 }
 {error} {
+/*encotramos el texto y lo guardamos */
     String linea = String.valueOf(yyline+1);
     escribirError(linea);
 }
 {Nvariable} { 
+/*encotramos el texto y lo guardamos */
    escribirIdentificador(yytext());
 }
 {Nclase} { 
+/*encotramos el texto y lo guardamos */
    escribirIdentificador(yytext());
 }
 {DOSPUNTOS} {
+/*encotramos el texto y lo guardamos */
     escribirSigno(":");
 }
 {COMILLAS} {
+/*encotramos el texto y lo guardamos */
     escribirSigno(yytext());
 }
 {COMA} {
+/*encotramos el texto y lo guardamos */
     escribirSigno(yytext());
 }
 {EspacioBlanco} {}
 . {
+/*de cualquier error usamos el metodo para eliminar lo anterior y solo guarda el error*/
     String linea = String.valueOf(yyline+1);
     escribirError(linea);
 }

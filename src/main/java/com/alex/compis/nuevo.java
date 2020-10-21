@@ -5,9 +5,9 @@
  */
 package com.alex.compis;
 
-/**
+/*
  *
- * @author YADI
+ * @author 
  */
 public class nuevo {
 
@@ -16,6 +16,7 @@ public class nuevo {
      */
     public static void main(String[] args) {
         System.out.println("");
+        
     }
     
 }
