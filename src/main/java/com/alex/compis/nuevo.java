@@ -5,6 +5,11 @@
  */
 package com.alex.compis;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  *
  * @author 
@@ -15,7 +20,16 @@ public class nuevo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("");
+       /*try {
+            // TODO code application logic here
+            Proyecto lex = new Proyecto(new FileReader("C:\\Users\\Jose-PC\\Documents\\Compiladores\\parcial\\src\\main\\java\\com\\alex\\parcial\\jflex\\texto.txt"));
+          //  Sintactico sintactico = new Sintactico(lex);
+           // sintactico.parse();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(nuevo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(nuevo.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
         
     }
     

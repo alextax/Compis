@@ -1,0 +1,16 @@
+package com.alex.compis;
+terminal Integer NUM; 
+terminal COMA;
+
+non terminal Integer S;
+S ::= NUM:n COMA S:s
+    {:
+        Integer resultado=s+n;
+        System.out.println("SYN: " + resultado); 
+        RESULT=resultado;
+    :}
+    |NUM:n
+    {: 
+        System.out.println("SYN: " + n); 
+        RESULT=n;
+    :};

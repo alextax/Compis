@@ -33,6 +33,29 @@
             </plugin>
             <!-- se agrego un pluging nuevo para tener un jar y ejecutarlo-->
             <plugin>
+                <groupId>com.github.vbmacher</groupId>
+                <artifactId>cup-maven-plugin</artifactId>
+                <version>11b-20160615</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <className>Sintactico</className>
+                    <symbolsName>sym</symbolsName>
+                    <cupDefinition>src/main/java/com/alex/compis/jcup/archivo.cup</cupDefinition>
+                    <outputDirectory>src/main/java</outputDirectory>
+                    <noSummary>false</noSummary>
+                    <progress>true</progress>
+                    <debug>true</debug>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.0</version>
