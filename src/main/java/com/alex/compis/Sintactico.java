@@ -12,10 +12,7 @@ import java_cup.runtime.XMLElement;
 @SuppressWarnings({"rawtypes"})
 public class Sintactico extends java_cup.runtime.lr_parser {
 
-    Sintactico(Proyecto lexico) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
  public final Class getSymbolContainer() {
     return sym.class;
 }
