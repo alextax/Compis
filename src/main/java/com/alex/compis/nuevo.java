@@ -20,17 +20,17 @@ public class nuevo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       /*try {
-            // TODO code application logic here
-            Proyecto lex = new Proyecto(new FileReader("C:\\Users\\Jose-PC\\Documents\\Compiladores\\parcial\\src\\main\\java\\com\\alex\\parcial\\jflex\\texto.txt"));
-          //  Sintactico sintactico = new Sintactico(lex);
-           // sintactico.parse();
+        try {
+          
+            Proyecto lexico = new Proyecto(new FileReader("texto.txt"));
+            Sintactico sintactico = new Sintactico(lexico);
+            sintactico.parse();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(nuevo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(nuevo.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        
+        }
+
     }
-    
+
 }
