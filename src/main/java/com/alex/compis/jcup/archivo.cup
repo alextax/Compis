@@ -1,16 +1,31 @@
 package com.alex.compis;
-terminal Integer NUM; 
-terminal COMA;
+terminal finLinea, puntoComa, entero, real, cadena, boleano, EspacioBlanco, identificadorVF, igual, coma;
+terminal numeroR, numero, texto,comillas, verdadero, falso, OperadorA, mas, menos, parentesisA, parentesisC;
+terminal and, or, escribir, leer;
+non terminal S, DEC, TIPO, FINL, IDEN, IGUALAR, PI, OPERACION, ASIGNACION, OperadorAritmetico, E_S;
+non terminal EMULTIPLE;
+start with S;
 
-non terminal Integer S;
-S ::= NUM:n COMA S:s
-    {:
-        Integer resultado=s+n;
-        System.out.println("SYN: " + resultado); 
-        RESULT=resultado;
-    :}
-    |NUM:n
-    {: 
-        System.out.println("SYN: " + n); 
-        RESULT=n;
-    :};
+S ::= E_S FINL S| E_S FINL;
+    
+E_S ::= escribir EspacioBlanco EMULTIPLE | leer EspacioBlanco identificadorVF;
+
+EMULTIPLE ::= identificadorVF coma EMULTIPLE | texto coma EMULTIPLE | identificadorVF | texto; 
+
+ASIGNACION ::=  identificadorVF IGUALAR | identificadorVF igual identificadorVF menos menos;
+
+DEC ::= TIPO EspacioBlanco IDEN | TIPO EspacioBlanco IDEN EspacioBlanco IGUALAR;
+
+TIPO ::= entero | real | cadena | boleano;
+
+IDEN ::= identificadorVF coma IDEN | identificadorVF;
+
+IGUALAR ::= igual EspacioBlanco OPERACION | igual EspacioBlanco menos OPERACION | igual EspacioBlanco mas mas identificadorVF;
+
+PI ::= numero | numeroR | texto | comillas comillas | verdadero | falso | identificadorVF;
+
+OPERACION ::= PI OperadorAritmetico OPERACION | parentesisA PI OperadorAritmetico PI parentesisC OperadorAritmetico OPERACION| parentesisA PI OperadorAritmetico PI parentesisC|PI;
+
+OperadorAritmetico ::= mas | menos | OperadorA;
+
+FINL ::= puntoComa | finLinea | puntoComa finLinea |;

@@ -21,16 +21,16 @@ public class nuevo {
      */
     public static void main(String[] args) {
         try {
-          
             Proyecto lexico = new Proyecto(new FileReader("texto.txt"));
             Sintactico sintactico = new Sintactico(lexico);
             sintactico.parse();
         } catch (FileNotFoundException ex) {
+            System.out.println("ERROR");
             Logger.getLogger(nuevo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
+            System.out.println("ERROR2");
             Logger.getLogger(nuevo.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
 }

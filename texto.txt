@@ -1,1 +1,6 @@
-123,123,123 
+escribir a,b,c
+escribir a,"nuevo"
+escribir "nuevo"
+escribir a,b,c,"nuevo",c
+leer a
+leer das

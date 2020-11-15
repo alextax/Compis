@@ -8,15 +8,61 @@ package com.alex.compis;
 /** CUP generated interface containing symbol constants. */
 public interface sym {
   /* terminals */
-  public static final int COMA = 3;
-  public static final int NUM = 2;
-  public static final int error = 1;
+  public static final int cadena = 6;
+  public static final int texto = 14;
+  public static final int boleano = 7;
+  public static final int coma = 11;
+  public static final int numero = 13;
+  public static final int comillas = 15;
+  public static final int or = 24;
+  public static final int finLinea = 2;
+  public static final int menos = 20;
+  public static final int OperadorA = 18;
+  public static final int igual = 10;
+  public static final int real = 5;
   public static final int EOF = 0;
+  public static final int verdadero = 16;
+  public static final int escribir = 25;
+  public static final int numeroR = 12;
+  public static final int EspacioBlanco = 8;
+  public static final int error = 1;
+  public static final int entero = 4;
+  public static final int parentesisC = 22;
+  public static final int identificadorVF = 9;
+  public static final int parentesisA = 21;
+  public static final int mas = 19;
+  public static final int puntoComa = 3;
+  public static final int leer = 26;
+  public static final int falso = 17;
+  public static final int and = 23;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
-  "NUM",
-  "COMA"
+  "finLinea",
+  "puntoComa",
+  "entero",
+  "real",
+  "cadena",
+  "boleano",
+  "EspacioBlanco",
+  "identificadorVF",
+  "igual",
+  "coma",
+  "numeroR",
+  "numero",
+  "texto",
+  "comillas",
+  "verdadero",
+  "falso",
+  "OperadorA",
+  "mas",
+  "menos",
+  "parentesisA",
+  "parentesisC",
+  "and",
+  "or",
+  "escribir",
+  "leer"
   };
 }
 
