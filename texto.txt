@@ -1,6 +1,54 @@
-escribir a,b,c
-escribir a,"nuevo"
-escribir "nuevo"
-escribir a,b,c,"nuevo",c
-leer a
-leer das
+/* area de inclusion de bibliotecas externas */
+incluir "nuevo";
+incluir "C::.Loop"
+incluir ""
+incluir "1231";
+// ninguna libreria que cargar
+
+clase Leonardo
+propiedades publicas:
+entero a
+//aqui van las propiedades publicas
+
+propiedades privadas:
+real a, b
+//aqui van las propiedades privadas
+
+propiedades protegidas:
+cadena nuevo = ""
+//aqui van las propiedades protegidas
+
+metodos publicos:
+//aqui van los metodos publicas
+
+metodos privados:
+//aqui van los M privadas
+
+metodos protegidos:
+//aqui van los M protegidas
+
+clase Otro
+
+propiedades privadas:
+boleano a, b = verdadero
+//aqui van las propiedades privadas
+
+propiedades protegidas:
+entero a, b12
+//aqui van las propiedades protegidas
+
+metodos privados:
+//aqui van los M privadas
+
+metodos protegidos:
+//aqui van los M protegidas
+
+clase Otro
+
+propiedades protegidas:
+entero nuevo;
+//aqui van las propiedades protegidas
+
+metodos protegidos:
+//aqui van los M protegidas
+

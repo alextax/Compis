@@ -1,31 +1,52 @@
 package com.alex.compis;
-terminal finLinea, puntoComa, entero, real, cadena, boleano, EspacioBlanco, identificadorVF, igual, coma;
-terminal numeroR, numero, texto,comillas, verdadero, falso, OperadorA, mas, menos, parentesisA, parentesisC;
-terminal and, or, escribir, leer;
-non terminal S, DEC, TIPO, FINL, IDEN, IGUALAR, PI, OPERACION, ASIGNACION, OperadorAritmetico, E_S;
-non terminal EMULTIPLE;
+
+terminal comentario, puntoComa, finLinea, espacioBlanco;
+terminal incluir, texto, clase, extiende, identificadorC;
+terminal entero, real ,boleano ,cadena , coma, verdadero;
+terminal falso, identificadorVF, parentesisA, parentesisC;
+terminal nulo, propiedades, metodos, publicas, privadas;
+terminal protegidas, publicos, privados, protegidos;
+terminal dosPuntos, numeroR, numero, igual;
+non terminal S, programa, FINL, BIBLIOTECAS, RBIBLIOTECAS, CLASESYFUNCIONES;
+non terminal CLASE,FUNCION,CONTENIDOCLASE, CONTENIDOFUNCION;
+non terminal TIPOF, TIPOV, ARGUMENTOS, PROPIE, METODO;
+non terminal PUBLI, PRIVA, PROTE, MPUBLI, MPRIVA, MPROTE;
+non terminal CONTENIDOPROPIE, DECLARARVARIABLE, DECLARARVARIABLE1, ARG, IGUALAR;
+non terminal IGUALACION;
+
 start with S;
 
-S ::= E_S FINL S| E_S FINL;
-    
-E_S ::= escribir EspacioBlanco EMULTIPLE | leer EspacioBlanco identificadorVF;
+S ::= programa;
 
-EMULTIPLE ::= identificadorVF coma EMULTIPLE | texto coma EMULTIPLE | identificadorVF | texto; 
+programa ::= FINL RBIBLIOTECAS CLASESYFUNCIONES| RBIBLIOTECAS CLASESYFUNCIONES| FINL CLASESYFUNCIONES| CLASESYFUNCIONES;
+RBIBLIOTECAS ::= BIBLIOTECAS FINL RBIBLIOTECAS | BIBLIOTECAS FINL | BIBLIOTECAS;
+BIBLIOTECAS ::= incluir espacioBlanco texto; 
+CLASESYFUNCIONES ::= CLASE CLASESYFUNCIONES | FUNCION CLASESYFUNCIONES| CLASE | FUNCION;
+CLASE ::= clase espacioBlanco identificadorC FINL CONTENIDOCLASE | clase espacioBlanco identificadorC espacioBlanco extiende espacioBlanco identificadorC FINL CONTENIDOCLASE;
+CONTENIDOCLASE ::= PROPIE METODO;
 
-ASIGNACION ::=  identificadorVF IGUALAR | identificadorVF igual identificadorVF menos menos;
+PROPIE ::= PUBLI  PRIVA | PRIVA ;
+PUBLI ::= propiedades espacioBlanco publicas dosPuntos FINL | propiedades espacioBlanco publicas dosPuntos FINL CONTENIDOPROPIE;
+PRIVA ::= propiedades espacioBlanco privadas dosPuntos FINL PROTE  |propiedades espacioBlanco privadas dosPuntos FINL CONTENIDOPROPIE PROTE | PROTE;
+PROTE ::= propiedades espacioBlanco protegidas dosPuntos FINL| propiedades espacioBlanco protegidas dosPuntos FINL CONTENIDOPROPIE;
 
-DEC ::= TIPO EspacioBlanco IDEN | TIPO EspacioBlanco IDEN EspacioBlanco IGUALAR;
+CONTENIDOPROPIE ::= DECLARARVARIABLE FINL CONTENIDOPROPIE | DECLARARVARIABLE FINL;
+DECLARARVARIABLE ::= DECLARARVARIABLE1 | DECLARARVARIABLE1 espacioBlanco IGUALAR;
+DECLARARVARIABLE1 ::= TIPOV espacioBlanco identificadorVF | TIPOV espacioBlanco identificadorVF ARG;
+ARG ::= coma espacioBlanco identificadorVF ARG | coma espacioBlanco identificadorVF;
+IGUALAR ::= igual  espacioBlanco IGUALACION;
+IGUALACION ::= numero |numeroR | texto | verdadero | falso; 
 
-TIPO ::= entero | real | cadena | boleano;
+METODO ::= MPUBLI MPRIVA | MPRIVA ;
+MPUBLI ::= metodos espacioBlanco publicos dosPuntos FINL;
+MPRIVA ::= metodos espacioBlanco privados dosPuntos FINL MPROTE | MPROTE;
+MPROTE ::= metodos espacioBlanco protegidos dosPuntos FINL;
 
-IDEN ::= identificadorVF coma IDEN | identificadorVF;
+FUNCION ::= TIPOF espacioBlanco identificadorVF parentesisA ARGUMENTOS parentesisC CONTENIDOFUNCION| TIPOF espacioBlanco identificadorVF parentesisA parentesisC CONTENIDOFUNCION;
+ARGUMENTOS ::= TIPOV espacioBlanco identificadorVF | TIPOV espacioBlanco identificadorVF coma espacioBlanco ARGUMENTOS;
+TIPOF ::= entero | real | cadena | boleano | nulo;
+TIPOV ::= entero | real | cadena | boleano;
 
-IGUALAR ::= igual EspacioBlanco OPERACION | igual EspacioBlanco menos OPERACION | igual EspacioBlanco mas mas identificadorVF;
+CONTENIDOFUNCION ::= FINL;
 
-PI ::= numero | numeroR | texto | comillas comillas | verdadero | falso | identificadorVF;
-
-OPERACION ::= PI OperadorAritmetico OPERACION | parentesisA PI OperadorAritmetico PI parentesisC OperadorAritmetico OPERACION| parentesisA PI OperadorAritmetico PI parentesisC|PI;
-
-OperadorAritmetico ::= mas | menos | OperadorA;
-
-FINL ::= puntoComa | finLinea | puntoComa finLinea |;
+FINL ::= finLinea FINL | puntoComa FINL | comentario FINL | finLinea | puntoComa | comentario;

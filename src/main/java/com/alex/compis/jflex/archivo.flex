@@ -89,12 +89,12 @@ clase = "clase"
 extiende = "extiende"
 propiedades = "propiedades"
 metodos = "metodos"
-publico = "publicas"
-privado = "privadas"
-protegido = "protegidas"
-publico = "publicos"
-privado = "privados"
-protegido = "protegidos"
+publicas = "publicas"
+privadas = "privadas"
+protegidas = "protegidas"
+publicos = "publicos"
+privados = "privados"
+protegidos = "protegidos"
 instanciar = "instanciar"
 eliminar = "eliminar"
 constructor = "constructor"
@@ -128,7 +128,7 @@ identificadorC={L}({l}|{L}|{D}|{guion})*
 
 /*NUMEROS Y CADENAS*/
 numR={D}+({punto}{D}+)+
-cad = {comillas}({L}|{l}|{D}|{espacio})+{comillas}
+cad = {comillas}({L}|{l}|{D}|{espacio}|{operadorA}|{guion}|{punto}|{dosPuntos})*{comillas}
 
 /*Espacios, FinLineas, Saltos de Linea, Identacion*/
 espacio=[ \n]
@@ -157,9 +157,43 @@ ComenB={COMENTARIOA}({L}|{l}|{D}|{espacio}|{EspacioBlanco}|"+"|"-"|"_"|"*"|"/*")
 }
 {ComenA} { 
     System.out.println("LEX : Encontre un COMENTARIO DE 1 LINEA " + yytext());
+    return new Symbol(sym.comentario);
 }
 {ComenB} {
     System.out.println("LEX : Encontre un COMENTARIO DE VARIAS LINEAS " + yytext());
+    return new Symbol(sym.comentario);
+}
+{espacio} {
+    System.out.println("LEX : Encontre un ESPACIO EN BLANCO " + yytext());
+    return new Symbol(sym.espacioBlanco);
+}
+{EspacioBlanco} {
+    System.out.println("LEX : encontre un Fin de Linea " + (yyline+1));
+    return new Symbol(sym.finLinea);
+}
+{puntoComa} {
+    System.out.println("LEX : Encontre un SIGNO " + yytext());
+    return new Symbol(sym.puntoComa);
+}
+{coma} {
+    System.out.println("LEX : Encontre un SIGNO " + yytext());
+    return new Symbol(sym.coma);
+}
+{cad} {
+    System.out.println("LEX : Encontre una CADENA " + yytext());
+    return new Symbol(sym.texto);
+}
+{incluir} { 
+    System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
+    return new Symbol(sym.incluir);
+}
+{clase} { 
+    System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
+    return new Symbol(sym.clase);
+}
+{extiende} { 
+    System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
+    return new Symbol(sym.extiende);
 }
 {entero} { 
     System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());;
@@ -177,6 +211,43 @@ ComenB={COMENTARIOA}({L}|{l}|{D}|{espacio}|{EspacioBlanco}|"+"|"-"|"_"|"*"|"/*")
     System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
     return new Symbol(sym.boleano);
 }
+{nulo} {
+    System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
+    return new Symbol(sym.nulo);
+}
+{propiedades} {
+    System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
+    return new Symbol(sym.propiedades);
+}
+{metodos} {
+    System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
+    return new Symbol(sym.metodos);
+}
+{publicas} {
+    System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
+    return new Symbol(sym.publicas);
+}
+{privadas} {
+    System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
+    return new Symbol(sym.privadas);
+}
+{protegidas} {
+    System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
+    return new Symbol(sym.protegidas);
+}
+{publicos} {
+    System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
+    return new Symbol(sym.publicos);
+}
+{privados} {
+    System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
+    return new Symbol(sym.privados);
+}
+{protegidos} {
+    System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
+    return new Symbol(sym.protegidos);
+}
+
 {v} {
     System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
     return new Symbol(sym.verdadero);
@@ -185,6 +256,41 @@ ComenB={COMENTARIOA}({L}|{l}|{D}|{espacio}|{EspacioBlanco}|"+"|"-"|"_"|"*"|"/*")
     System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
     return new Symbol(sym.falso);
 }
+{identificadorVF} {
+    System.out.println("LEX : Encontre un IDENTIFICADOR " + yytext());
+    return new Symbol(sym.identificadorVF);
+}
+{identificadorC} {
+    System.out.println("LEX : Encontre un IDENTIFICADOR " + yytext());
+    return new Symbol(sym.identificadorC);
+}
+{numR} {
+    System.out.println("LEX : Encontre un NUMERO REAL " + yytext());
+    return new Symbol(sym.numeroR);}
+{D} {
+    System.out.println("LEX : Encontre un NUMERO " + yytext());
+    return new Symbol(sym.numero);
+}
+{igual} {
+    System.out.println("LEX : Encontre un SIGNO " + yytext());
+    return new Symbol(sym.igual);
+}
+
+{parentesisC} {
+    System.out.println("LEX : encontre un SIGNO " + yytext());
+    return new Symbol(sym.parentesisC);
+}
+{parentesisA} {
+    System.out.println("LEX : encontre un SIGNO " + yytext());
+    return new Symbol(sym.parentesisA);
+}
+{dosPuntos} {
+    System.out.println("LEX : encontre un SIGNO " + yytext());
+    return new Symbol(sym.dosPuntos);
+}
+
+/*
+
 {and} {
     System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
     return new Symbol(sym.and);
@@ -201,42 +307,12 @@ ComenB={COMENTARIOA}({L}|{l}|{D}|{espacio}|{EspacioBlanco}|"+"|"-"|"_"|"*"|"/*")
     System.out.println("LEX : Encontre una PALABRA RESERVADA " + yytext());
     return new Symbol(sym.leer);
 }
-{identificadorVF} {
-    System.out.println("LEX : Encontre un IDENTIFICADOR " + yytext());
-    return new Symbol(sym.identificadorVF);
-}
-{igual} {
-    System.out.println("LEX : Encontre un SIGNO " + yytext());
-    return new Symbol(sym.igual);
-}
-{coma} {
-    System.out.println("LEX : Encontre un SIGNO " + yytext());
-    return new Symbol(sym.coma);
-}
-{puntoComa} {
-    System.out.println("LEX : Encontre un SIGNO " + yytext());
-    return new Symbol(sym.puntoComa);
-}
-{numR} {
-    System.out.println("LEX : Encontre un NUMERO REAL " + yytext());
-    return new Symbol(sym.numeroR);}
-{D} {
-    System.out.println("LEX : Encontre un NUMERO " + yytext());
-    return new Symbol(sym.numero);
-}
 
-{cad} {
-    System.out.println("LEX : Encontre una CADENA " + yytext());
-    return new Symbol(sym.texto);
-}
 {comillas} {
     System.out.println("LEX : Encontre un SIGNO " + yytext());
     return new Symbol(sym.comillas);
 }
-{espacio} {
-    System.out.println("LEX : Encontre un ESPACIO EN BLANCO " + yytext());
-    return new Symbol(sym.EspacioBlanco);
-}
+
 {operadorA} {
     System.out.println("LEX : Encontre un OPERADOR " + yytext());
     return new Symbol(sym.OperadorA);
@@ -249,18 +325,8 @@ ComenB={COMENTARIOA}({L}|{l}|{D}|{espacio}|{EspacioBlanco}|"+"|"-"|"_"|"*"|"/*")
     System.out.println("LEX : Encontre un OPERADOR " + yytext());
     return new Symbol(sym.menos);
 }
-{EspacioBlanco} {
-    System.out.println("LEX : encontre un Fin de Linea " + (yyline+1));
-    return new Symbol(sym.finLinea);
-}
-{parentesisC} {
-    System.out.println("LEX : encontre un SIGNO " + yytext());
-    return new Symbol(sym.parentesisC);
-}
-{parentesisA} {
-    System.out.println("LEX : encontre un SIGNO " + yytext());
-    return new Symbol(sym.parentesisA);
-}
+
+*/
 . {
 /*de cualquier error usamos el metodo para eliminar lo anterior y solo guarda el error*/
     String linea = String.valueOf(yyline+1);
