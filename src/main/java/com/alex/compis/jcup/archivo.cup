@@ -1,52 +1,48 @@
 package com.alex.compis;
 
-terminal comentario, puntoComa, finLinea, espacioBlanco;
 terminal incluir, texto, clase, extiende, identificadorC;
 terminal entero, real ,boleano ,cadena , coma, verdadero;
 terminal falso, identificadorVF, parentesisA, parentesisC;
 terminal nulo, propiedades, metodos, publicas, privadas;
 terminal protegidas, publicos, privados, protegidos;
-terminal dosPuntos, numeroR, numero, igual;
-non terminal S, programa, FINL, BIBLIOTECAS, RBIBLIOTECAS, CLASESYFUNCIONES;
-non terminal CLASE,FUNCION,CONTENIDOCLASE, CONTENIDOFUNCION;
-non terminal TIPOF, TIPOV, ARGUMENTOS, PROPIE, METODO;
-non terminal PUBLI, PRIVA, PROTE, MPUBLI, MPRIVA, MPROTE;
-non terminal CONTENIDOPROPIE, DECLARARVARIABLE, DECLARARVARIABLE1, ARG, IGUALAR;
-non terminal IGUALACION;
+terminal dosPuntos, numeroR, numero, igual, punto;
 
+non terminal S, programa, RBIBLIOTECAS, CLASE, FUNCION, CODIGOG, TIPOF, DECLARARVARIABLE;
+non terminal ARG, TIPOV, MASVARIABLES, IGUALAR, IGUALACION, LLAMARFUNCION, LLAMARVARIABLE;
+non terminal LLAMARFUNCIONCLASE, TIPOPROPIEDADES, TIPOMETODOS;
+non terminal CONTENIDOCLASE;
 start with S;
 
 S ::= programa;
 
-programa ::= FINL RBIBLIOTECAS CLASESYFUNCIONES| RBIBLIOTECAS CLASESYFUNCIONES| FINL CLASESYFUNCIONES| CLASESYFUNCIONES;
-RBIBLIOTECAS ::= BIBLIOTECAS FINL RBIBLIOTECAS | BIBLIOTECAS FINL | BIBLIOTECAS;
-BIBLIOTECAS ::= incluir espacioBlanco texto; 
-CLASESYFUNCIONES ::= CLASE CLASESYFUNCIONES | FUNCION CLASESYFUNCIONES| CLASE | FUNCION;
-CLASE ::= clase espacioBlanco identificadorC FINL CONTENIDOCLASE | clase espacioBlanco identificadorC espacioBlanco extiende espacioBlanco identificadorC FINL CONTENIDOCLASE;
-CONTENIDOCLASE ::= PROPIE METODO;
+programa ::= RBIBLIOTECAS programa | CLASE programa | FUNCION programa | CODIGOG programa | CODIGOG;
 
-PROPIE ::= PUBLI  PRIVA | PRIVA ;
-PUBLI ::= propiedades espacioBlanco publicas dosPuntos FINL | propiedades espacioBlanco publicas dosPuntos FINL CONTENIDOPROPIE;
-PRIVA ::= propiedades espacioBlanco privadas dosPuntos FINL PROTE  |propiedades espacioBlanco privadas dosPuntos FINL CONTENIDOPROPIE PROTE | PROTE;
-PROTE ::= propiedades espacioBlanco protegidas dosPuntos FINL| propiedades espacioBlanco protegidas dosPuntos FINL CONTENIDOPROPIE;
+RBIBLIOTECAS ::= incluir texto;
 
-CONTENIDOPROPIE ::= DECLARARVARIABLE FINL CONTENIDOPROPIE | DECLARARVARIABLE FINL;
-DECLARARVARIABLE ::= DECLARARVARIABLE1 | DECLARARVARIABLE1 espacioBlanco IGUALAR;
-DECLARARVARIABLE1 ::= TIPOV espacioBlanco identificadorVF | TIPOV espacioBlanco identificadorVF ARG;
-ARG ::= coma espacioBlanco identificadorVF ARG | coma espacioBlanco identificadorVF;
-IGUALAR ::= igual  espacioBlanco IGUALACION;
-IGUALACION ::= numero |numeroR | texto | verdadero | falso; 
+CLASE ::= clase identificadorC | clase identificadorC extiende identificadorC | CONTENIDOCLASE;
 
-METODO ::= MPUBLI MPRIVA | MPRIVA ;
-MPUBLI ::= metodos espacioBlanco publicos dosPuntos FINL;
-MPRIVA ::= metodos espacioBlanco privados dosPuntos FINL MPROTE | MPROTE;
-MPROTE ::= metodos espacioBlanco protegidos dosPuntos FINL;
+CONTENIDOCLASE ::= propiedades TIPOPROPIEDADES dosPuntos | metodos TIPOMETODOS dosPuntos ; 
 
-FUNCION ::= TIPOF espacioBlanco identificadorVF parentesisA ARGUMENTOS parentesisC CONTENIDOFUNCION| TIPOF espacioBlanco identificadorVF parentesisA parentesisC CONTENIDOFUNCION;
-ARGUMENTOS ::= TIPOV espacioBlanco identificadorVF | TIPOV espacioBlanco identificadorVF coma espacioBlanco ARGUMENTOS;
+TIPOPROPIEDADES ::= publicas | privadas | protegidas;
+
+TIPOMETODOS ::= publicos | privados | protegidos;
+
+FUNCION ::= TIPOF identificadorVF parentesisA parentesisC | TIPOF identificadorVF parentesisA ARG parentesisC;
+
+CODIGOG ::= DECLARARVARIABLE | DECLARARVARIABLE IGUALAR;
+
+DECLARARVARIABLE ::= TIPOF identificadorVF | TIPOF identificadorVF MASVARIABLES;
+
+MASVARIABLES ::= coma identificadorVF | coma identificadorVF MASVARIABLES;
+
+IGUALAR ::= igual IGUALACION;
+
+IGUALACION ::= numero | numeroR | texto | verdadero | falso | LLAMARFUNCION | LLAMARVARIABLE | LLAMARFUNCIONCLASE; 
+
+LLAMARFUNCION ::= identificadorVF parentesisA parentesisC | identificadorVF parentesisA identificadorVF MASVARIABLES parentesisC;
+LLAMARVARIABLE ::= identificadorVF punto identificadorVF;
+LLAMARFUNCIONCLASE ::= identificadorVF punto LLAMARFUNCION;
+
+ARG ::= TIPOF identificadorVF |  TIPOF identificadorVF coma ARG;
+
 TIPOF ::= entero | real | cadena | boleano | nulo;
-TIPOV ::= entero | real | cadena | boleano;
-
-CONTENIDOFUNCION ::= FINL;
-
-FINL ::= finLinea FINL | puntoComa FINL | comentario FINL | finLinea | puntoComa | comentario;

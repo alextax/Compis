@@ -104,7 +104,7 @@ public class Proyecto implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\1\2\1\3\1\4\1\2\1\1\1\5"+
-    "\1\6\1\7\1\1\1\10\1\11\1\12\1\13\1\14"+
+    "\1\6\1\7\1\10\1\1\1\11\1\12\1\13\1\14"+
     "\13\15\2\0\1\16\1\0\1\17\1\0\15\15\3\0"+
     "\1\20\16\15\1\21\1\0\10\15\1\22\4\15\1\23"+
     "\1\15\1\24\2\15\1\25\2\15\1\26\10\15\1\27"+
@@ -139,7 +139,7 @@ public class Proyecto implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ROWMAP_PACKED_0 =
     "\0\0\0\51\0\51\0\122\0\51\0\173\0\244\0\51"+
-    "\0\51\0\51\0\315\0\366\0\51\0\51\0\51\0\u011f"+
+    "\0\51\0\51\0\51\0\315\0\366\0\51\0\51\0\u011f"+
     "\0\u0148\0\u0171\0\u019a\0\u01c3\0\u01ec\0\u0215\0\u023e\0\u0267"+
     "\0\u0290\0\u02b9\0\u02e2\0\u030b\0\244\0\51\0\u0334\0\u035d"+
     "\0\u0386\0\u03af\0\u03d8\0\u0401\0\u042a\0\u0453\0\u047c\0\u04a5"+
@@ -181,13 +181,13 @@ public class Proyecto implements java_cup.runtime.Scanner {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\5\1\6\1\4\1\7\1\2"+
-    "\1\10\1\11\2\2\1\12\1\2\1\13\1\14\1\15"+
+    "\1\10\1\11\2\2\1\12\1\13\1\14\1\15\1\13"+
     "\1\16\1\17\1\20\1\2\1\21\1\22\1\23\1\21"+
     "\1\24\1\25\2\21\1\26\1\21\1\27\1\30\1\21"+
     "\1\31\1\32\3\21\1\33\1\21\53\0\1\34\2\0"+
     "\1\34\45\0\1\3\50\0\1\35\2\0\1\35\1\36"+
     "\1\35\2\0\1\35\2\0\4\35\2\0\26\35\12\0"+
-    "\1\37\3\0\1\40\47\0\1\41\1\0\1\14\50\0"+
+    "\1\37\3\0\1\40\47\0\1\41\1\0\1\15\50\0"+
     "\1\20\3\0\26\20\17\0\1\21\3\0\26\21\17\0"+
     "\1\21\3\0\16\21\1\42\7\21\17\0\1\21\3\0"+
     "\2\21\1\43\10\21\1\44\12\21\17\0\1\21\3\0"+
@@ -308,7 +308,7 @@ public class Proyecto implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\2\11\1\1\1\11\2\1\3\11\2\1\3\11"+
+    "\1\0\2\11\1\1\1\11\2\1\4\11\2\1\2\11"+
     "\14\1\2\0\1\11\1\0\1\1\1\0\15\1\3\0"+
     "\17\1\1\11\1\0\103\1";
 
@@ -832,13 +832,11 @@ public class Proyecto implements java_cup.runtime.Scanner {
           case 37: break;
           case 2:
             { System.out.println("LEX : encontre un Fin de Linea " + (yyline+1));
-    return new Symbol(sym.finLinea);
             }
             // fall through
           case 38: break;
           case 3:
             { System.out.println("LEX : Encontre un ESPACIO EN BLANCO " + yytext());
-    return new Symbol(sym.espacioBlanco);
             }
             // fall through
           case 39: break;
@@ -866,20 +864,19 @@ public class Proyecto implements java_cup.runtime.Scanner {
             // fall through
           case 43: break;
           case 8:
-            { System.out.println("LEX : Encontre un NUMERO " + yytext());
-    return new Symbol(sym.numero);
+            { System.out.println("LEX : encontre un SIGNO " + yytext());
+    return new Symbol(sym.dosPuntos);
             }
             // fall through
           case 44: break;
           case 9:
-            { System.out.println("LEX : encontre un SIGNO " + yytext());
-    return new Symbol(sym.dosPuntos);
+            { System.out.println("LEX : Encontre un NUMERO " + yytext());
+    return new Symbol(sym.numero);
             }
             // fall through
           case 45: break;
           case 10:
             { System.out.println("LEX : Encontre un SIGNO " + yytext());
-    return new Symbol(sym.puntoComa);
             }
             // fall through
           case 46: break;
@@ -909,7 +906,6 @@ public class Proyecto implements java_cup.runtime.Scanner {
           case 50: break;
           case 15:
             { System.out.println("LEX : Encontre un COMENTARIO DE 1 LINEA " + yytext());
-    return new Symbol(sym.comentario);
             }
             // fall through
           case 51: break;
@@ -938,7 +934,6 @@ public class Proyecto implements java_cup.runtime.Scanner {
           case 55: break;
           case 20:
             { System.out.println("LEX : Encontre un COMENTARIO DE VARIAS LINEAS " + yytext());
-    return new Symbol(sym.comentario);
             }
             // fall through
           case 56: break;

@@ -157,23 +157,18 @@ ComenB={COMENTARIOA}({L}|{l}|{D}|{espacio}|{EspacioBlanco}|"+"|"-"|"_"|"*"|"/*")
 }
 {ComenA} { 
     System.out.println("LEX : Encontre un COMENTARIO DE 1 LINEA " + yytext());
-    return new Symbol(sym.comentario);
 }
 {ComenB} {
     System.out.println("LEX : Encontre un COMENTARIO DE VARIAS LINEAS " + yytext());
-    return new Symbol(sym.comentario);
 }
 {espacio} {
     System.out.println("LEX : Encontre un ESPACIO EN BLANCO " + yytext());
-    return new Symbol(sym.espacioBlanco);
 }
 {EspacioBlanco} {
     System.out.println("LEX : encontre un Fin de Linea " + (yyline+1));
-    return new Symbol(sym.finLinea);
 }
 {puntoComa} {
     System.out.println("LEX : Encontre un SIGNO " + yytext());
-    return new Symbol(sym.puntoComa);
 }
 {coma} {
     System.out.println("LEX : Encontre un SIGNO " + yytext());
@@ -288,6 +283,10 @@ ComenB={COMENTARIOA}({L}|{l}|{D}|{espacio}|{EspacioBlanco}|"+"|"-"|"_"|"*"|"/*")
     System.out.println("LEX : encontre un SIGNO " + yytext());
     return new Symbol(sym.dosPuntos);
 }
+{punto} {
+    System.out.println("LEX : encontre un SIGNO " + yytext());
+    return new Symbol(sym.dosPuntos);
+}
 
 /*
 
@@ -334,3 +333,4 @@ ComenB={COMENTARIOA}({L}|{l}|{D}|{espacio}|{EspacioBlanco}|"+"|"-"|"_"|"*"|"/*")
     escribirError(linea);
     return new Symbol(sym.error);
 }
+
