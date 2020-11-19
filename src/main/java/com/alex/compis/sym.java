@@ -8,37 +8,57 @@ package com.alex.compis;
 /** CUP generated interface containing symbol constants. */
 public interface sym {
   /* terminals */
-  public static final int cadena = 10;
-  public static final int texto = 3;
+  public static final int numeroR = 28;
   public static final int identificadorC = 6;
+  public static final int desde = 45;
+  public static final int devolver = 26;
+  public static final int dosPuntos = 27;
   public static final int boleano = 9;
-  public static final int coma = 11;
-  public static final int numero = 28;
-  public static final int publicos = 23;
-  public static final int protegidos = 25;
-  public static final int privados = 24;
-  public static final int propiedades = 18;
-  public static final int incluir = 2;
-  public static final int publicas = 20;
-  public static final int punto = 30;
-  public static final int protegidas = 22;
   public static final int nulo = 17;
-  public static final int igual = 29;
-  public static final int privadas = 21;
+  public static final int coma = 11;
+  public static final int entonces = 40;
   public static final int metodos = 19;
+  public static final int igual = 30;
+  public static final int incluir = 2;
+  public static final int publicos = 23;
   public static final int real = 8;
-  public static final int EOF = 0;
-  public static final int verdadero = 12;
-  public static final int numeroR = 27;
-  public static final int error = 1;
-  public static final int entero = 7;
-  public static final int clase = 4;
-  public static final int identificadorVF = 14;
-  public static final int parentesisC = 16;
-  public static final int dosPuntos = 26;
-  public static final int parentesisA = 15;
-  public static final int falso = 13;
+  public static final int privadas = 21;
+  public static final int si = 39;
+  public static final int escribir = 37;
+  public static final int mientras = 46;
   public static final int extiende = 5;
+  public static final int protegidas = 22;
+  public static final int clase = 4;
+  public static final int numero = 29;
+  public static final int menos = 33;
+  public static final int menor = 43;
+  public static final int decrementar = 48;
+  public static final int leer = 38;
+  public static final int EOF = 0;
+  public static final int mas = 32;
+  public static final int verdadero = 12;
+  public static final int incrementar = 47;
+  public static final int error = 1;
+  public static final int instanciar = 50;
+  public static final int mayor = 42;
+  public static final int or = 36;
+  public static final int entero = 7;
+  public static final int punto = 31;
+  public static final int falso = 13;
+  public static final int hacer = 49;
+  public static final int propiedades = 18;
+  public static final int noigual = 44;
+  public static final int privados = 24;
+  public static final int texto = 3;
+  public static final int and = 35;
+  public static final int protegidos = 25;
+  public static final int parentesisC = 16;
+  public static final int identificadorVF = 14;
+  public static final int publicas = 20;
+  public static final int parentesisA = 15;
+  public static final int operadorA = 34;
+  public static final int sino = 41;
+  public static final int cadena = 10;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -66,11 +86,31 @@ public interface sym {
   "publicos",
   "privados",
   "protegidos",
+  "devolver",
   "dosPuntos",
   "numeroR",
   "numero",
   "igual",
-  "punto"
+  "punto",
+  "mas",
+  "menos",
+  "operadorA",
+  "and",
+  "or",
+  "escribir",
+  "leer",
+  "si",
+  "entonces",
+  "sino",
+  "mayor",
+  "menor",
+  "noigual",
+  "desde",
+  "mientras",
+  "incrementar",
+  "decrementar",
+  "hacer",
+  "instanciar"
   };
 }
 

@@ -4,18 +4,23 @@ terminal incluir, texto, clase, extiende, identificadorC;
 terminal entero, real ,boleano ,cadena , coma, verdadero;
 terminal falso, identificadorVF, parentesisA, parentesisC;
 terminal nulo, propiedades, metodos, publicas, privadas;
-terminal protegidas, publicos, privados, protegidos;
-terminal dosPuntos, numeroR, numero, igual, punto;
+terminal protegidas, publicos, privados, protegidos, devolver;
+terminal dosPuntos, numeroR, numero, igual, punto, mas, menos, operadorA;
+terminal and, or, escribir, leer, si, entonces, sino, mayor, menor, noigual;
+terminal desde, mientras, incrementar, decrementar, hacer, instanciar;
 
 non terminal S, programa, RBIBLIOTECAS, CLASE, FUNCION, CODIGOG, TIPOF, DECLARARVARIABLE;
 non terminal ARG, TIPOV, MASVARIABLES, IGUALAR, IGUALACION, LLAMARFUNCION, LLAMARVARIABLE;
-non terminal LLAMARFUNCIONCLASE, TIPOPROPIEDADES, TIPOMETODOS;
-non terminal CONTENIDOCLASE;
+non terminal LLAMARFUNCIONCLASE, TIPOPROPIEDADES, TIPOMETODOS, PREPOST, E_S, ESCRITURA;
+non terminal LECTURA, DATOS, SELECTIVA, CODIGOSA, CODIGOSB, SELECTIVA_SI, SELECTIVA_SINO, CONDICION;
+non terminal CONTENIDOCLASE, ASIGNAR, NEGATIVO, IGUALACIONS, OPERACIONBASICA, OPERACIONLOGICA;
+non terminal ITERATIVA1, INI, DEC , ITERATIVA2, CODIGOSC, INSTANCIA, ENVIAR, PARAMETROS;
+
 start with S;
 
-S ::= programa;
+S ::= programa {: System.out.println("---------DEPURACION COMPLETADA, EL PROGRAMA NO CONTIENE ERRORES---------");  :};
 
-programa ::= RBIBLIOTECAS programa | CLASE programa | FUNCION programa | CODIGOG programa | CODIGOG;
+programa ::= RBIBLIOTECAS programa | CLASE programa | FUNCION programa | CODIGOG programa | CODIGOG ;
 
 RBIBLIOTECAS ::= incluir texto;
 
@@ -29,7 +34,34 @@ TIPOMETODOS ::= publicos | privados | protegidos;
 
 FUNCION ::= TIPOF identificadorVF parentesisA parentesisC | TIPOF identificadorVF parentesisA ARG parentesisC;
 
-CODIGOG ::= DECLARARVARIABLE | DECLARARVARIABLE IGUALAR;
+CODIGOG ::= CODIGOSA| CODIGOSB | CODIGOSC;
+
+CODIGOSA ::= DECLARARVARIABLE | DECLARARVARIABLE IGUALAR | ASIGNAR | E_S ;
+
+CODIGOSB ::= SELECTIVA_SI | SELECTIVA_SINO | ITERATIVA1 |ITERATIVA2;
+
+CODIGOSC ::= INSTANCIA | LLAMARFUNCION | devolver IGUALACION;
+
+INSTANCIA ::= identificadorC identificadorVF igual instanciar identificadorC PARAMETROS;
+
+PARAMETROS ::= parentesisA parentesisC | parentesisA ENVIAR parentesisC;
+
+ENVIAR ::= IGUALACIONS | IGUALACIONS coma ENVIAR;
+
+ITERATIVA1 ::= desde INI  mientras CONDICION DEC IGUALACIONS hacer;
+
+ITERATIVA2 ::= hacer | mientras CONDICION;
+
+DEC ::= incrementar | decrementar;
+
+INI ::= identificadorVF | TIPOF identificadorVF | identificadorVF IGUALAR | TIPOF identificadorVF IGUALAR;
+
+SELECTIVA_SI ::= si CONDICION entonces;
+
+SELECTIVA_SINO ::= sino CONDICION entonces ;
+
+CONDICION ::= IGUALACION menor IGUALACION | IGUALACION mayor IGUALACION | IGUALACION igual igual IGUALACION | IGUALACION noigual IGUALACION;
+
 
 DECLARARVARIABLE ::= TIPOF identificadorVF | TIPOF identificadorVF MASVARIABLES;
 
@@ -37,12 +69,32 @@ MASVARIABLES ::= coma identificadorVF | coma identificadorVF MASVARIABLES;
 
 IGUALAR ::= igual IGUALACION;
 
-IGUALACION ::= numero | numeroR | texto | verdadero | falso | LLAMARFUNCION | LLAMARVARIABLE | LLAMARFUNCIONCLASE; 
+IGUALACION ::= IGUALACIONS  | OPERACIONBASICA ;
 
-LLAMARFUNCION ::= identificadorVF parentesisA parentesisC | identificadorVF parentesisA identificadorVF MASVARIABLES parentesisC;
-LLAMARVARIABLE ::= identificadorVF punto identificadorVF;
+IGUALACIONS ::= numero | numeroR | texto | verdadero | falso | LLAMARFUNCION | LLAMARVARIABLE | LLAMARFUNCIONCLASE | identificadorVF ; 
+
+OPERACIONBASICA ::= IGUALACIONS mas IGUALACIONS | IGUALACIONS menos IGUALACIONS | IGUALACIONS operadorA IGUALACIONS | menos IGUALACIONS |PREPOST |OPERACIONLOGICA   ;
+
+OPERACIONLOGICA ::= IGUALACIONS and IGUALACIONS | IGUALACIONS or IGUALACIONS;
+
+PREPOST ::= mas mas IGUALACIONS | IGUALACIONS menos menos; 
+
+LLAMARFUNCION ::= identificadorVF PARAMETROS;
+
+LLAMARVARIABLE ::= identificadorVF punto identificadorVF ;
+
 LLAMARFUNCIONCLASE ::= identificadorVF punto LLAMARFUNCION;
 
 ARG ::= TIPOF identificadorVF |  TIPOF identificadorVF coma ARG;
 
 TIPOF ::= entero | real | cadena | boleano | nulo;
+
+ASIGNAR ::= identificadorVF punto identificadorVF IGUALAR | identificadorVF IGUALAR ;
+
+E_S ::= LECTURA | ESCRITURA;
+
+ESCRITURA ::= escribir DATOS;
+
+DATOS ::= IGUALACIONS | IGUALACIONS coma DATOS;
+
+LECTURA ::= leer identificadorVF;

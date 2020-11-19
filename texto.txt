@@ -1,54 +1,43 @@
 /* area de inclusion de bibliotecas externas */
-incluir "nuevo";
-incluir "C::.Loop"
-incluir ""
-incluir "1231";
 // ninguna libreria que cargar
 
-clase Leonardo
-propiedades publicas:
-entero a
-//aqui van las propiedades publicas
+/* area de declaracion de clases */
+clase Impar
+  propiedades privadas:
+  propiedades publicas:
+    cadena hola
+  metodos publicos:
+    entero esImpar(entero numero)
+      si numero == 2 entonces
+        devolver 1;
+      sino numero == 3 entonces
+        devolver 0;
+  metodos privados:
+  
 
-propiedades privadas:
-real a, b
-//aqui van las propiedades privadas
+clase HolaMundo
+  propiedades privadas:
+    entero a
+    cadena nombre
+    Impar i = instanciar Impar();
+  metodos publicos:
+    constructor()
+      i = nuevo()
+      a = 5
+      nombre = ""
+      devolver i.esImpar(a)
+      cadena getNombre()
+      devolver nombre
 
-propiedades protegidas:
-cadena nuevo = ""
-//aqui van las propiedades protegidas
-
-metodos publicos:
-//aqui van los metodos publicas
-
-metodos privados:
-//aqui van los M privadas
-
-metodos protegidos:
-//aqui van los M protegidas
-
-clase Otro
-
-propiedades privadas:
-boleano a, b = verdadero
-//aqui van las propiedades privadas
-
-propiedades protegidas:
-entero a, b12
-//aqui van las propiedades protegidas
-
-metodos privados:
-//aqui van los M privadas
-
-metodos protegidos:
-//aqui van los M protegidas
-
-clase Otro
-
-propiedades protegidas:
-entero nuevo;
-//aqui van las propiedades protegidas
-
-metodos protegidos:
-//aqui van los M protegidas
-
+/* area de declaracion de funcion de carga inicial */
+entero principal()
+  HolaMundo hola = instanciar HolaMundo()/* comentarios en la misma linea */
+  i = 60
+  desde i mientras i > 5 decrementar 2 hacer
+    hacer /*Comentarios dentro de codigo*/
+        a =5+ b
+    mientras a < 10
+    si i == 2 entonces
+      escribir hola.getNombre(), i;
+    escribir "valor actual de i:", i;
+   escribir "hola ", hola.getNombre(), " gracias por usar este programa"
